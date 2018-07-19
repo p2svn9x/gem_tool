@@ -542,7 +542,7 @@ function UpdateProcess()
         if(empty($parentid)){
             echo "1001";die;
         }
-        $optinfo = $this->curl->simple_get($this->config->item('api_url') . '?c=103&nn=' . $nickname . '&st=' . $status);
+        $optinfo = $this->curl->simple_get($this->config->item('api_url') . '?c=103&nn=' . $nickname . '&st=' . $status."&pr=".$this->input->post('parent'));
         $datainfo = json_decode($optinfo);
         $num_daily2 = $this->curl->simple_get($this->config->item('api_portal') . '?c=10');
         $numdl2 = json_decode($num_daily2)->number_dl2;
@@ -564,23 +564,27 @@ function UpdateProcess()
             'status' => "D",
             'parentid' => $parentid,
             'createtime' => date("Y-m-d H:i:s"),
-            'updatetime' => date("Y-m-d H:i:s")
+            'updatetime' => date("Y-m-d H:i:s"),
+            'parent' => $this->input->post('parent')
         );
         if ($optinfo) {
             if ($info != false) {
-                $this->curl->simple_get($this->config->item('api_url') . '?c=103&nn=' . $nickname . '&st=0');
+                $this->curl->simple_get($this->config->item('api_url') . '?c=103&nn=' . $nickname . '&st=0'.'&pr='.$this->input->post('parent'));
+
                 $this->session->set_flashdata('message', ' <div class="form-group has-error"><label class="control-label" for="inputSuccess"><i class="fa fa-check"></i> Nick name đã là đại lý </label></div>');
+
                 echo json_encode("0");
+
                 die();
             } else if ($total >= $numdl2) {
-                $this->curl->simple_get($this->config->item('api_url') . '?c=103&nn=' . $nickname . '&st=0');
+                $this->curl->simple_get($this->config->item('api_url') . '?c=103&nn=' . $nickname . '&st=0'.'&pr='.$this->input->post('parent'));
                 $this->session->set_flashdata('message', ' <div class="form-group has-error"><label class="control-label" for="inputSuccess"><i class="fa fa-check"></i> Bạn đã thêm quá  ' . $numdl2 . ' đại lý </label></div>');
                 echo json_encode("1");
                 die();
             } else if ($total < $numdl2 && $datainfo->errorCode == 0) {
                 $this->logadmin_model->create($this->logadmindata(1, $this->input->post('nickname'), $admin_info->username));
                 if(!$this->useragent_model->create($data)){
-                    $this->curl->simple_get($this->config->item('api_url') . '?c=103&nn=' . $nickname . '&st=0');
+                    $this->curl->simple_get($this->config->item('api_url') . '?c=103&nn=' . $nickname . '&st=0'.'&pr='.$this->input->post('parent'));
                     $this->session->set_flashdata('message', ' <div class="form-group has-error"><label class="control-label" for="inputSuccess"><i class="fa fa-check"></i> Thêm đại lý không thất bại. </label></div>');
                     echo json_encode("1");
                     die();
@@ -588,7 +592,8 @@ function UpdateProcess()
                 $this->session->set_flashdata('message', ' <div class="form-group has-success successful"><label class="control-label" for="inputSuccess"><i class="fa fa-check"></i> Bạn thêm đại lý thành công</label></div>');
                 echo json_encode("2");
             }else if($datainfo->errorCode == 1001){
-                $this->curl->simple_get($this->config->item('api_url') . '?c=103&nn=' . $nickname . '&st=0');
+                $this->curl->simple_get($this->config->item('api_url') . '?c=103&nn=' . $nickname . '&st=0'.'&pr='.$this->input->post('parent'));
+                var_dump($this->config->item('api_url') . '?c=103&nn=' . $nickname . '&st=0'.'&pr='.$this->input->post('parent'));
                 $this->session->set_flashdata('message', ' <div class="form-group has-error"><label class="control-label" for="inputSuccess"><i class="fa fa-check"></i> Nick name không tồn tại </label></div>');
                 echo json_encode("3");
                 die();
@@ -608,7 +613,8 @@ function UpdateProcess()
         $admin_info = $this->useragent_model->get_info($admin_login);
         // insert vao db
 
-        $optinfo = $this->curl->simple_get($this->config->item('api_url') . '?c=103&nn=' . $this->input->post('nickname') . '&st=1');
+        $optinfo = $this->curl->simple_get($this->config->item('api_url') . '?c=103&nn=' . $this->input->post('nickname') . '&st=1'.'&pr='.$this->input->post('parent'));
+
         $datainfo = json_decode($optinfo);
         $data = array(
             'username' => $this->input->post('username'),
@@ -627,11 +633,13 @@ function UpdateProcess()
             'show' => $this->input->post('show'),
             'createtime' => date("Y-m-d H:i:s"),
             'updatetime' => date("Y-m-d H:i:s"),
+            'parent' => $this->input->post('parent')
 
         );
         if ($optinfo) {
             if ($info != false) {
                 $this->session->set_flashdata('message', ' <div class="form-group has-error"><label class="control-label" for="inputSuccess"><i class="fa fa-check"></i> Nick name đã là đại lý </label></div>');
+                $this->curl->simple_get($this->config->item('api_url') . '?c=103&nn=' .  $this->input->post('nickname') . '&st=0'.'&pr='.$this->input->post('parent'));
                 echo json_encode("0");
                 die();
             } else if ($datainfo->errorCode == 0) {
@@ -640,6 +648,7 @@ function UpdateProcess()
                 $this->session->set_flashdata('message', ' <div class="form-group has-success successful"><label class="control-label" for="inputSuccess"><i class="fa fa-check"></i> Bạn thêm đại lý thành công</label></div>');
                 echo json_encode("2");
             }else if($datainfo->errorCode == 1001){
+                $this->curl->simple_get($this->config->item('api_url') . '?c=103&nn=' .  $this->input->post('nickname') . '&st=0'.'&pr='.$this->input->post('parent'));
                 $this->session->set_flashdata('message', ' <div class="form-group has-error"><label class="control-label" for="inputSuccess"><i class="fa fa-check"></i> Nick name không tồn tại </label></div>');
                 echo json_encode("3");
                 die();

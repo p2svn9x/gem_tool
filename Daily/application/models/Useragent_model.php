@@ -85,4 +85,20 @@ Class Useragent_model extends MY_Model
             return FALSE;
         }
     }
+
+    function  get_list_daily_2_mien($mien){
+
+        $this->db->where('parentid',-1);
+        $this->db->where('active',1);
+        $this->db->where('status',"D");
+        $this->db->where("parent",$mien);
+        $this->db->where("nickname !=",$mien);
+        $query = $this->db->get($this->table);
+        if($query->result())
+        {
+            return $query->result();
+        }else{
+            return FALSE;
+        }
+    }
 }

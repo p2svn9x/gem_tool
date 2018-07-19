@@ -252,10 +252,11 @@
                 username: $("#username").val(),
                 mobile: $("#mobile").val(),
                 email: $("#email").val(),
-                parentid: $('#parentid').val()
+                parentid: $('#parentid').val(),
+                parent : "<?php echo $daily1->nickname ?>"
             },
             success: function (res) {
-                window.location.href = "<?php echo base_url('') ?>";
+               // window.location.href = "<?php echo base_url('') ?>";
             }
         });
     });

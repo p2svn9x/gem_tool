@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'mysql.vinplay.com',
-	'port'     => '3309',
-	'username' => 'vinplay_admin',
-	'password' => 'LcY3fcxF7TW52djYwcYU',
+	'hostname' => '35.194.142.58',
+	'port'     => '3306',
+	'username' => 'vinplay',
+	'password' => 'vinplay@123',
 	'database' => 'vinplay_admin',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',

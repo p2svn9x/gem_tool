@@ -23,17 +23,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://tdaily.gem.club';
+$config['base_url'] = 'http://localhost/gem_tool/Daily';
 //$config['api_url'] = 'http://192.168.0.251:8082/api_backend';
 
 
-$config['api_url'] = 'http://35.185.144.170:8082/api_backend';
-$config['api_url2'] = 'http://35.185.144.170:8082/api_backend';
+$config['api_url'] = 'http://35.201.171.109:8082/api_backend';
+$config['api_url2'] = 'http://35.201.171.109:8082/api_backend';
 //$config['api_url2'] = 'http://104.155.195.145:8082/api_backend';
 //$config['api_portal'] = 'http://portal.xeng.club/api';
-$config['api_portal'] = 'http://35.185.144.170/api';
+$config['api_portal'] = 'http://35.201.171.109:8081/api';
 //$config['api_url_odp'] = 'http://portal.xeng.club/api';
-$config['api_url_odp'] = 'http://35.185.144.170/api';
+$config['api_url_odp'] = 'http://35.201.171.109:8081/api';
 $config['fee1'] = 1;
 $config['fee2'] = 1;
 $config['daily'] = 'tongdaily';

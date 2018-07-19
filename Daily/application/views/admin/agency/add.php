@@ -64,6 +64,24 @@
                                          style="color: #0000ff" id="lblvin"></label>
         </div>
     </div>
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <label for="inputEmail3" class="col-sm-1 control-label">Đại lý cha:</label>
+
+            <div class="col-sm-2">
+                <select class="form-control" id="parent_name">
+                    <option value="">Chọn</option>
+                    <option value="tongdailymb">Tổng đại lý miền bắc</option>
+                    <option value="tongdailymn">Tổng đại lý miền nam</option>
+                </select>
+
+            </div>
+            <label for="inputEmail3" class="col-sm-2 control-label" id="errorparent"
+                   style="color: red"></label>
+        </div>
+    </div>
     <div class="form-group">
         <div class="row">
             <div class="col-sm-3"></div>
@@ -77,6 +95,8 @@
                    style="color: red"></label>
         </div>
     </div>
+
+
     <div class="form-group">
         <div class="row">
             <div class="col-sm-3"></div>
@@ -400,13 +420,25 @@ $("#setdaily2").click(function () {
     });
 });
 $("#setdaily1").click(function () {
-    if($("#namedaily").val() == ""){
+    if($("#parent_name").val() == ""){
+        $("#erroradd").html("");
+        $("#errorphone").html("");
+        $("#errorname").html("");
+        $("#errornamebank").html("");
+        $("#erroruserbank").html("");
+        $("#errornumberbank").html("");
+        $("#errorparent").html("Bạn chưa chọn đại lý cha");
+        return false;
+    }
+
+   else if($("#namedaily").val() == ""){
         $("#errorname").html("Bạn phải nhập tên đại lý");
         $("#errorphone").html("");
         $("#erroradd").html("");
         $("#errornamebank").html("");
         $("#erroruserbank").html("");
         $("#errornumberbank").html("");
+        $("#errorparent").html("");
         return false;
     }else if($("#phonedaily").val() == ""){
         $("#errorphone").html("Bạn phải nhập số điện thoại");
@@ -415,6 +447,7 @@ $("#setdaily1").click(function () {
         $("#errornamebank").html("");
         $("#erroruserbank").html("");
         $("#errornumberbank").html("");
+        $("#errorparent").html("");
         return false;
     } else if($("#addressdaily").val() == ""){
         $("#erroradd").html("Bạn phải nhập địa chỉ");
@@ -423,6 +456,7 @@ $("#setdaily1").click(function () {
         $("#errornamebank").html("");
         $("#erroruserbank").html("");
         $("#errornumberbank").html("");
+        $("#errorparent").html("");
         return false;
     }else if($("#namebank").val() == ""){
         $("#erroradd").html("");
@@ -431,6 +465,7 @@ $("#setdaily1").click(function () {
         $("#errornamebank").html("Bạn phải nhập tên ngân hàng");
         $("#erroruserbank").html("");
         $("#errornumberbank").html("");
+        $("#errorparent").html("");
         return false;
     }else if($("#usernamebank").val() == ""){
         $("#erroradd").html("");
@@ -439,6 +474,7 @@ $("#setdaily1").click(function () {
         $("#errornamebank").html("");
         $("#erroruserbank").html("Bạn phải nhập tên tài khoản ngân hàng");
         $("#errornumberbank").html("");
+        $("#errorparent").html("");
         return false;
     }else if($("#numberbank").val() == ""){
         $("#erroradd").html("");
@@ -447,6 +483,7 @@ $("#setdaily1").click(function () {
         $("#errornamebank").html("");
         $("#erroruserbank").html("");
         $("#errornumberbank").html("Bạn phải nhập số tài khoản ngân hàng");
+        $("#errorparent").html("");
         return false;
     }
     $.ajax({
@@ -465,6 +502,7 @@ $("#setdaily1").click(function () {
             email: $("#email").val(),
             nickname: $("#nickname").val(),
             show: $("#isshow").val(),
+            parent : $("#parent_name").val()
 
         },
         success: function (response) {
