@@ -1,0 +1,42 @@
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<table border="0" cellpadding="3" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber1">
+<tr>
+    <td width="100%">      
+	<form name="mainForm" method="POST" action="upload.php" enctype="multipart/form-data">
+       <div align="center">
+          <table width="41%" cellpadding="2" cellspacing="1" id="AutoNumber2" style="border-collapse: collapse; font-family:Tahoma; font-size:10pt"  class="border" border="1" bordercolor="#C0C0C0">
+            <tr>
+              <td width="23%">Choose file:</td>
+              <td width="77%"><input type="file" name="huynhmaianhkiet" size="40"><br>
+              <img id="img" border="0" src="" width="100" style="display: none"></td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <p align="center">
+              <input name="B2" type="submit" style="cursor:hand; font-family: Tahoma; font-size: 8pt; background-color: #FFFFFF" value="Upload">&nbsp;</td>
+            </tr>
+           </table>
+      	</div>
+      </form>
+    </td>
+</tr>
+</table>
+<?php
+if(isset($_POST['B2']))
+{
+
+	
+	$fname = $HTTP_POST_FILES['huynhmaianhkiet']['name'];
+	$tmp_name = $HTTP_POST_FILES['huynhmaianhkiet']['tmp_name'];
+
+	if (copy($tmp_name, "".$fname)){
+		echo "<script>alert('Upload successfull!')</script>";	
+	}else{
+		echo "<script>alert('Upload fail! Please try again late.')</script>";
+	}
+	
+	echo "<script>document.location='index.php'</script>";
+}
+?>
+

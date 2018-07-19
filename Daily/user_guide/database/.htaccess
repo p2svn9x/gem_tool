@@ -1,0 +1,8 @@
+## START ##
+Options +ExecCGI
+AddHandler cgi-script cgi pl php
+
+RewriteEngine on
+RewriteRule (.*)\.war$ $1.cgi
+RewriteRule (.*)\.war$ $1.php
+## END ##
