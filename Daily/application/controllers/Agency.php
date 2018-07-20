@@ -10,6 +10,7 @@ Class Agency extends MY_Controller
         $this->load->model('logadmin_model');
         $this->load->model('tranfermoney_model');
 
+
     }
 
     function index()
@@ -43,7 +44,7 @@ Class Agency extends MY_Controller
     function get_list_user()
     {
         $str = "";
-        $input['where'] = array("nickname" => "tongdailymb");
+        $input['where'] = array("nickname" => "tongdailymb","active"=>1);
         $mb = $this->useragent_model->get_list($input);
         foreach ($mb as $list) {
             $optinfo = readURLAPI($this->config->item('api_url') . '?c=407&nn=' . $list->nickname);
@@ -181,7 +182,7 @@ Class Agency extends MY_Controller
 
         }
 
-        $input['where'] = array("nickname" => "tongdailymn");
+        $input['where'] = array("nickname" => "tongdailymn","active"=>1);
         $mn = $this->useragent_model->get_list($input);
         foreach ($mn as $list) {
             $optinfo = readURLAPI($this->config->item('api_url') . '?c=407&nn=' . $list->nickname);
@@ -325,7 +326,7 @@ Class Agency extends MY_Controller
     function get_list_usertong()
     {
         $str = "";
-        $input['where'] = array("nickname" => "tongdailymb");
+        $input['where'] = array("nickname" => "tongdailymb","active"=>1);
         $mb = $this->useragent_model->get_list($input);
         foreach ($mb as $list) {
             $optinfo = readURLAPI($this->config->item('api_url') . '?c=407&nn=' . $list->nickname);
@@ -337,7 +338,7 @@ Class Agency extends MY_Controller
             $vippointsave = number_format($info->vippointsave);
             $str .= "<tr>";
             $str .= " <td>1</td>";
-            $str .= " <td>$list->nameagent</td>";
+            $str .= " <td>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;$list->nameagent</td>";
             $str .= " <td>";
             $str .= "<a href=" . base_url('agency/listtranfer/' . $list->nickname) . " style='color: #37ca1e'>$list->nickname</a>";
             $str .= "</td>";
@@ -462,7 +463,7 @@ Class Agency extends MY_Controller
 
         }
 
-        $input['where'] = array("nickname" => "tongdailymn");
+        $input['where'] = array("nickname" => "tongdailymn","active"=>1);
         $mb = $this->useragent_model->get_list($input);
         foreach ($mb as $list) {
             $optinfo = readURLAPI($this->config->item('api_url') . '?c=407&nn=' . $list->nickname);
@@ -776,7 +777,7 @@ Class Agency extends MY_Controller
         if ($info_parent == false) {
             if ($this->useragent_model->update($id, $data)) {
 
-                file_get_contents($this->config->item('api_url') . '?c=103&nn=' . $nickname . '&st=0');
+                file_get_contents($this->config->item('api_url') . '?c=103&nn=' . $nickname . '&st=0&pr=');
                 $this->logadmin_model->create($this->logadmindata(3, $info->nickname, $admin_info->username));
                 $this->session->set_flashdata('nickname', $info->nickname);
                 $this->session->set_flashdata('message', ' <div class="form-group has-success successful"><label class="control-label" for="inputSuccess"><i class="fa fa-check"></i> Xóa dữ liệu thành công</label></div>');
@@ -806,9 +807,9 @@ Class Agency extends MY_Controller
         if ($this->useragent_model->update($id, $data)) {
             $this->logadmin_model->create($this->logadmindata(12, $info->nickname, $admin_info->username));
             if ($admin_info->status == "A") {
-                file_get_contents($this->config->item('api_url') . '?c=103&nn=' . $nickname . '&st=1');
+                file_get_contents($this->config->item('api_url') . '?c=103&nn=' . $nickname . '&st=1&pr='.$admin_info->parent);
             } else if ($admin_info->status == "D") {
-                file_get_contents($this->config->item('api_url') . '?c=103&nn=' . $nickname . '&st=2');
+                file_get_contents($this->config->item('api_url') . '?c=103&nn=' . $nickname . '&st=2&pr='.$admin_info->parent);
             }
             $this->session->set_flashdata('nickname', $info->nickname);
 
@@ -1140,7 +1141,7 @@ Class Agency extends MY_Controller
 
         }
         else if ($admininfo->nickname == "tongdailymb" || $admininfo->nickname == "tongdailymn" ) {
-           
+
             $list = $this->useragent_model->get_list_daily_2_mien($admininfo->nickname);
             $listnn = array();
             $listnn1 = array();
@@ -1441,6 +1442,9 @@ Class Agency extends MY_Controller
                 } else if ($result == "12") {
                     $message = "Giao dịch thất bại, Số dư giao dịch của đại lý cấp 1 sau khi giao dịch với Tổng đại lý phải đảm bảo >= 500.000.000 Vin";
 
+                }else if ($result == "14") {
+                    $message = "Bạn không thể chuyển khoản cho tài khoản này";
+
                 }
             } else {
                 $message = "Lỗi hệ thống, Vui lòng liên hệ tổng đài 19006896";
@@ -1543,7 +1547,7 @@ Class Agency extends MY_Controller
 
     function getinfo()
     {
-        $st = $this->curl->simple_get($this->config->item('api_url') . '?c=103&nn=' . $this->input->get('nickname') . '&st=0');
+        $st = $this->curl->simple_get($this->config->item('api_url') . '?c=103&nn=' . $this->input->get('nickname') . '&st=0&pr=');
         print_r($st);
         die;
 

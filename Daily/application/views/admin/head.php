@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-<title>Đại lý Xengclub</title>
+<title>Đại lý GemClub</title>
 
 <meta name="robots" content="noindex, nofollow" />
 <link rel="stylesheet" href="<?php echo public_url('admin') ?>/bootstrap/css/bootstrap.min.css">

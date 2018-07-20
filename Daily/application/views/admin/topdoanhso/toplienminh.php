@@ -1,6 +1,6 @@
 
 
-<?php if ($admin_info->nickname == "tongdailymb" || $admin_info->nickname == "tongdailymn" ) : ?>
+<?php if ($admin_info->nickname == $dlmb || $admin_info->nickname == $dlmn ) : ?>
 <section class="content-header">
     <h1>
         Top doanh số liên minh
@@ -136,7 +136,7 @@ function listtopdoanhsoAgent(index, agentName, nickName, total,bonusFix,bonusMor
     html += "<td style='text-align: center'>" + (index +1) + "</td>";
     html += "<td>" + agentName + "</td>";
     html += "<td>" + nickName + "</td>";
-    html += "<td style='display: none'>" + commaSeparateNumber(total) + "</td>";
+    html += "<td>" + commaSeparateNumber(total) + "</td>";
 
     if($("#hdnnickname").val()==nickName){
         html += "<td style='display:none>" + commaSeparateNumber(bonusFix) + "</td>";
@@ -186,7 +186,7 @@ function topDoanhSoAgent() {
                 result += ' <th style="text-align: center">TOP</th>';
                 result += ' <th>Tên đại lý</th>';
                 result += ' <th>Nickname</th>';
-                result += ' <th style="display: none">Doanh số</th>';
+                result += ' <th>Doanh số</th>';
                 result += ' <th style="display:none">Thưởng cố định(Vin)</th>';
                 result += ' <th>Thưởng doanh số(Vin)</th>';
                 result += ' <th style="display:none">Tổng thưởng(Vin)</th>';

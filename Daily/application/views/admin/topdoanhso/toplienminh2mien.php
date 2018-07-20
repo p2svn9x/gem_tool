@@ -1,72 +1,81 @@
-<section class="content-header">
-    <h1>
-        Top doanh liên minh  2 miền
-    </h1>
-</section>
+<?php if ($admin_info->status == "A" || $admin_info->nickname == $daily) : ?>
 
-<input type="hidden" value="<?php echo $admin_info->status ?>" id="statususer">
-<input type="hidden" value="<?php echo $admin_info->nickname ?>" id="nickname">
-<input type="hidden" value="<?php echo $admin_info->nickname ?>" id="hdnnickname">
-<section class="content">
-    <div class="row">
-        <div class="col-xs-12">
-            <div class="box">
-                <div class="box-body">
-                    <div class="form-group">
-                        <div class="row">
-                            <label class="col-sm-1 control-label">Tháng:</label>
+    <section class="content-header">
+        <h1>
+            Top doanh liên minh 2 miền
+        </h1>
+    </section>
 
-                            <div class="col-sm-2">
-                                <div class="input-group date" id="datetimepicker1">
-                                    <input type="text" class="form-control" id="fromDate" name="fromDate"
-                                           value="<?php echo $this->input->post("fromDate") ?>">
+    <input type="hidden" value="<?php echo $admin_info->status ?>" id="statususer">
+    <input type="hidden" value="<?php echo $admin_info->nickname ?>" id="nickname">
+    <input type="hidden" value="<?php echo $admin_info->nickname ?>" id="hdnnickname">
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-sm-1 control-label">Tháng:</label>
+
+                                <div class="col-sm-2">
+                                    <div class="input-group date" id="datetimepicker1">
+                                        <input type="text" class="form-control" id="fromDate" name="fromDate"
+                                               value="<?php echo $this->input->post("fromDate") ?>">
                                     <span class="input-group-addon">
 												<span class="glyphicon glyphicon-calendar"></span>
 											</span>
-                                    <input type="hidden" id="startDate">
-                                    <input type="hidden" id="endDate">
+                                        <input type="hidden" id="startDate">
+                                        <input type="hidden" id="endDate">
+                                    </div>
                                 </div>
-                            </div>
-                            <label class="col-sm-1 control-label" style="display:none">Đến ngày:</label>
+                                <label class="col-sm-1 control-label" style="display:none">Đến ngày:</label>
 
-                            <div class="col-sm-2" style="display:none">
-                                <div class="input-group date" id="datetimepicker2">
-                                    <input type="text" class="form-control" id="toDate" name="toDate"
-                                           value="<?php echo $this->input->post("toDate") ?>"> <span
-                                        class="input-group-addon">
+                                <div class="col-sm-2" style="display:none">
+                                    <div class="input-group date" id="datetimepicker2">
+                                        <input type="text" class="form-control" id="toDate" name="toDate"
+                                               value="<?php echo $this->input->post("toDate") ?>"> <span
+                                            class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
 </span>
+                                    </div>
                                 </div>
+                                <div class="col-sm-1"><input type="submit" value="Tìm kiếm" name="submit"
+                                                             class="btn btn-primary pull-right" id="search_tran"></div>
+
                             </div>
-                            <div class="col-sm-1"><input type="submit" value="Tìm kiếm" name="submit"
-                                                         class="btn btn-primary pull-right" id="search_tran"></div>
-
                         </div>
-                    </div>
 
-                    <div style="width: 100%;float: left;color: #ff0000;" id="error"></div>
-                    <div class="col-xs-12 col-sm-6 col-md-6" id="table1">
+                        <div style="width: 100%;float: left;color: #ff0000;" id="error"></div>
+                        <div class="col-xs-12 col-sm-6 col-md-6" id="table1">
 
-                        <div id="spinner" class="spinner" style="">
-                            <img id="img-spinner" src="<?php echo public_url('admin/images/gif-load.gif') ?>"
-                                 alt="Loading"/>
+                            <div id="spinner" class="spinner" style="">
+                                <img id="img-spinner" src="<?php echo public_url('admin/images/gif-load.gif') ?>"
+                                     alt="Loading"/>
+                            </div>
+                            <h1 id="resultsearch"></h1>
                         </div>
-                        <h1 id="resultsearch"></h1>
-                    </div>
 
-                    <div class="col-xs-12 col-sm-6 col-md-6" id="table2">
+                        <div class="col-xs-12 col-sm-6 col-md-6" id="table2">
 
-                        <div id="spinner1" class="spinner" style="">
-                            <img id="img-spinner" src="<?php echo public_url('admin/images/gif-load.gif') ?>"
-                                 alt="Loading"/>
+                            <div id="spinner1" class="spinner" style="">
+                                <img id="img-spinner" src="<?php echo public_url('admin/images/gif-load.gif') ?>"
+                                     alt="Loading"/>
+                            </div>
+                            <h1 id="resultsearch1"></h1>
                         </div>
-                        <h1 id="resultsearch1"></h1>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+<?php else: ?>
+    <section class="content-header">
+        <h1>
+            Bạn không được phân quyền
+        </h1>
+    </section>
+<?php endif; ?>
 
 <style>
     .spinner {
@@ -113,8 +122,8 @@ $(document).ready(function () {
     $("#fromDate").val(getFirtDayOfMonth());
     var queryDate = $("#fromDate").val();
     dateParts = queryDate.match(/(\d+)/g);
-    $("#startDate").val(FirstDayOfMonth(dateParts[1],dateParts[0]));
-    $("#endDate").val(LastDayOfMonth(dateParts[1],dateParts[0]));
+    $("#startDate").val(FirstDayOfMonth(dateParts[1], dateParts[0]));
+    $("#endDate").val(LastDayOfMonth(dateParts[1], dateParts[0]));
 
 
     topDoanhSoAgent();
@@ -127,31 +136,31 @@ $("#search_tran").click(function () {
     $("#spinner1").show();
     var queryDate = $("#fromDate").val();
     dateParts = queryDate.match(/(\d+)/g);
-    $("#startDate").val(FirstDayOfMonth(dateParts[1],dateParts[0]));
-    $("#endDate").val(LastDayOfMonth(dateParts[1],dateParts[0]));
+    $("#startDate").val(FirstDayOfMonth(dateParts[1], dateParts[0]));
+    $("#endDate").val(LastDayOfMonth(dateParts[1], dateParts[0]));
 
     topDoanhSoAgent();
     topDoanhSoAgent1();
 
 });
 
-function listtopdoanhsoAgent(index, agentName, nickName, total,bonusFix,bonusMore,bonusTotal,bonusByVinCash,bonusByVinplayCard,percent) {
+function listtopdoanhsoAgent(index, agentName, nickName, total, bonusFix, bonusMore, bonusTotal, bonusByVinCash, bonusByVinplayCard, percent) {
     var html = "";
     html += "<tr>";
-    html += "<td style='text-align: center'>" + (index +1) + "</td>";
+    html += "<td style='text-align: center'>" + (index + 1) + "</td>";
     html += "<td>" + agentName + "</td>";
     html += "<td>" + nickName + "</td>";
-    html += "<td style='display: none'>" + commaSeparateNumber(total) + "</td>";
+    html += "<td>" + commaSeparateNumber(total) + "</td>";
 
-    if($("#hdnnickname").val()==nickName){
+    if ($("#hdnnickname").val() == nickName) {
         html += "<td style='display:none>" + commaSeparateNumber(bonusFix) + "</td>";
         html += "<td >" + commaSeparateNumber(bonusMore) + "</td>";
         html += "<td style='display:none>" + commaSeparateNumber(bonusTotal) + "</td>";
         html += "<td style='display:none'>" + commaSeparateNumber(bonusByVinCash) + "</td>";
         html += "<td style='display:none'>" + commaSeparateNumber(bonusByVinplayCard) + "</td>";
-        html += "<td style='display:none'>" + percent +' %' + "</td>";
+        html += "<td style='display:none'>" + percent + ' %' + "</td>";
     }
-    else{
+    else {
         html += "<td style='display:none></td>";
         html += "<td ></td>";
         html += "<td style='display:none></td>";
@@ -170,7 +179,7 @@ function topDoanhSoAgent() {
         type: "POST",
         url: "<?php echo base_url('TranferAjax/topDoanhSoDlMien') ?>",
         data: {
-            nickName: "tongdailymb",
+            nickName: "<?php echo $dlmb ?>",
             timestart: $("#startDate").val(),
             timeend: $("#endDate").val(),
             month: $("#fromDate").val()
@@ -192,7 +201,7 @@ function topDoanhSoAgent() {
                 result += ' <th style="text-align: center">TOP</th>';
                 result += ' <th>Tên đại lý</th>';
                 result += ' <th>Nickname</th>';
-                result += ' <th style="display: none">Doanh số</th>';
+                result += ' <th>Doanh số</th>';
                 result += ' <th style="display:none">Thưởng cố định(Vin)</th>';
                 result += ' <th>Thưởng doanh số(Vin)</th>';
                 result += ' <th style="display:none">Tổng thưởng(Vin)</th>';
@@ -203,7 +212,7 @@ function topDoanhSoAgent() {
                 result += ' </thead>';
                 result += '<tbody>';
                 $.each(data.transactions, function (index, value) {
-                    result += listtopdoanhsoAgent(index, value.agentName, value.nickName, value.total,value.bonusFix,value.bonusMore,value.bonusTotal,value.bonusByVinCash,value.bonusByVinplayCard,value.percent);
+                    result += listtopdoanhsoAgent(index, value.agentName, value.nickName, value.total, value.bonusFix, value.bonusMore, value.bonusTotal, value.bonusByVinCash, value.bonusByVinplayCard, value.percent);
                 });
 
                 result += '</tbody>';
@@ -212,11 +221,11 @@ function topDoanhSoAgent() {
 
 
             }
-        },error: function(){
+        }, error: function () {
             $("#spinner").hide();
             $("#error").html("Kết nối không ổn định.Vui lòng thử lại sau");
         },
-        timeout:30000
+        timeout: 30000
     });
 }
 
@@ -227,7 +236,7 @@ function topDoanhSoAgent1() {
         type: "POST",
         url: "<?php echo base_url('TranferAjax/topDoanhSoDlMien') ?>",
         data: {
-            nickName: "tongdailymn",
+            nickName: "<?php echo $dlmn ?>",
             timestart: $("#startDate").val(),
             timeend: $("#endDate").val(),
             month: $("#fromDate").val()
@@ -249,7 +258,7 @@ function topDoanhSoAgent1() {
                 result += ' <th style="text-align: center">TOP</th>';
                 result += ' <th>Tên đại lý</th>';
                 result += ' <th>Nickname</th>';
-                result += ' <th style="display: none">Doanh số</th>';
+                result += ' <th>Doanh số</th>';
                 result += ' <th style="display:none">Thưởng cố định(Vin)</th>';
                 result += ' <th>Thưởng doanh số(Vin)</th>';
                 result += ' <th style="display:none">Tổng thưởng(Vin)</th>';
@@ -260,7 +269,7 @@ function topDoanhSoAgent1() {
                 result += ' </thead>';
                 result += '<tbody>';
                 $.each(data.transactions, function (index, value) {
-                    result += listtopdoanhsoAgent(index, value.agentName, value.nickName, value.total,value.bonusFix,value.bonusMore,value.bonusTotal,value.bonusByVinCash,value.bonusByVinplayCard,value.percent);
+                    result += listtopdoanhsoAgent(index, value.agentName, value.nickName, value.total, value.bonusFix, value.bonusMore, value.bonusTotal, value.bonusByVinCash, value.bonusByVinplayCard, value.percent);
                 });
 
                 result += '</tbody>';
@@ -269,11 +278,11 @@ function topDoanhSoAgent1() {
 
 
             }
-        },error: function(){
+        }, error: function () {
             $("#spinner1").hide();
             $("#error").html("Kết nối không ổn định.Vui lòng thử lại sau");
         },
-        timeout:30000
+        timeout: 30000
     });
 }
 function commaSeparateNumber(val) {
@@ -299,8 +308,8 @@ function getFirtDayOfMonth() {
     else {
         ngaytruoc = firstDay.getDate();
     }
-    $("#startDate").val( firstDay.getFullYear() + '-' + (thangtruoc) + '-' + (ngaytruoc) + " " + "00:00:00")
-    return thangtruoc +'/'+firstDay.getFullYear();
+    $("#startDate").val(firstDay.getFullYear() + '-' + (thangtruoc) + '-' + (ngaytruoc) + " " + "00:00:00")
+    return thangtruoc + '/' + firstDay.getFullYear();
 }
 
 function getLastDayOfMonth() {
@@ -324,14 +333,14 @@ function getLastDayOfMonth() {
     return lastDay.getFullYear() + '-' + (thangsau) + '-' + (ngaysau) + " " + "23:59:59";
 }
 function LastDayOfMonth(Year, Month) {
-    var nowDate=new Date((new Date(Year, Month,1))-1 );
+    var nowDate = new Date((new Date(Year, Month, 1)) - 1);
     return formatLastDate(nowDate);
 }
 function formatLastDate(date) {
     var d = new Date(date),
         month = '' + (d.getMonth() + 1),
-        day = '' + d.getDate() +" 23:59:59",
-        year = d.getFullYear() ;
+        day = '' + d.getDate() + " 23:59:59",
+        year = d.getFullYear();
 
     if (month.length < 2) month = '0' + month;
     if (day.length < 11) day = '0' + day;
@@ -339,14 +348,14 @@ function formatLastDate(date) {
     return [year, month, day].join('-');
 }
 function FirstDayOfMonth(Year, Month) {
-    var nowDate=new Date(Year, Month-1, 1);
+    var nowDate = new Date(Year, Month - 1, 1);
     return formatFirstDate(nowDate);
 }
 function formatFirstDate(date) {
     var d = new Date(date),
         month = '' + (d.getMonth() + 1),
-        day = '' + d.getDate() +" 00:00:00",
-        year = d.getFullYear() ;
+        day = '' + d.getDate() + " 00:00:00",
+        year = d.getFullYear();
 
     if (month.length < 2) month = '0' + month;
     if (day.length < 11) day = '0' + day;

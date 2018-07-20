@@ -370,7 +370,7 @@ Class TranferAjax extends MY_Controller
     {
         $nickname = $this->input->post('nickname');
         $status = $this->input->post('status');
-        $optinfo = $this->curl->simple_get($this->config->item('api_url') . '?c=103&nn=' . $nickname . '&st=0');
+        $optinfo = $this->curl->simple_get($this->config->item('api_url') . '?c=103&nn=' . $nickname . '&st=0&pr=');
         if ($optinfo) {
             echo $optinfo;
         } else {

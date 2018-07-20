@@ -73,8 +73,8 @@
             <div class="col-sm-2">
                 <select class="form-control" id="parent_name">
                     <option value="">Chọn</option>
-                    <option value="tongdailymb">Tổng đại lý miền bắc</option>
-                    <option value="tongdailymn">Tổng đại lý miền nam</option>
+                    <option value="<?php echo $dlmb ?>">Tổng đại lý miền bắc</option>
+                    <option value="<?php echo $dlmn ?>">Tổng đại lý miền nam</option>
                 </select>
 
             </div>

@@ -13,7 +13,7 @@
 
 <ul class="sidebar-menu">
 
-<?php if ($admin_info->nickname == "tongdailymb" || $admin_info->nickname == "tongdailymn") : ?>
+<?php if ($admin_info->nickname == $dlmb || $admin_info->nickname == $dlmn) : ?>
     <li>
         <a href="<?php echo base_url("agency/listdailymien") ?>">
             <i class="fa fa-dashboard"></i><span>Danh sách đại lý trực thuộc </span>
@@ -45,7 +45,7 @@
     </li>
 <?php endif; ?>
 <?php if ($admin_info->status == "D"): ?>
-    <?php if ($admin_info->nickname == "tongdailymb" || $admin_info->nickname == "tongdailymn") : ?>
+    <?php if ($admin_info->nickname == $dlmb || $admin_info->nickname == $dlmn) : ?>
     <?php else: ?>
         <li>
             <a href="<?php echo base_url('agency/listnoactive') ?>">
@@ -69,31 +69,40 @@
         <i class="fa fa-dashboard"></i> <span>Doanh số</span>
     </a>
 </li>
-<li>
-    <a href="<?php echo base_url('agency/topdoanhso') ?>">
-        <i class="fa fa-dashboard"></i> <span>Top doanh số liên minh</span>
-    </a>
-</li>
-
-<?php if ($admin_info->nickname == "tongdailymb") : ?>
-    <li>
-        <a href="<?php echo base_url('agency/toplienminhmien') ?>">
-            <i class="fa fa-dashboard"></i> <span>Top liên minh miền bắc</span>
-        </a>
-    </li>
-<?php elseif ($admin_info->nickname == "tongdailymn"): ?>
-    <li>
-        <a href="<?php echo base_url('agency/toplienminhmien') ?>">
-            <i class="fa fa-dashboard"></i> <span>Top liên minh miền nam</span>
-        </a>
-    </li>
-    <?php elseif($admin_info->status == "A"): ?>
-    <li>
-        <a href="<?php echo base_url('agency/toplienminh2mien') ?>">
-            <i class="fa fa-dashboard"></i> <span>Top liên minh 2 miền</span>
-        </a>
-    </li>
-<?php endif; ?>
+<!--<li>-->
+<!--    <a href="--><?php //echo base_url('agency/topdoanhso') ?><!--">-->
+<!--        <i class="fa fa-dashboard"></i> <span>Top doanh số liên minh</span>-->
+<!--    </a>-->
+<!--</li>-->
+<!---->
+<?php //if ($admin_info->nickname == $dlmb) : ?>
+<!--    <li>-->
+<!--        <a href="--><?php //echo base_url('agency/toplienminhmien') ?><!--">-->
+<!--            <i class="fa fa-dashboard"></i> <span>Top liên minh miền bắc</span>-->
+<!--        </a>-->
+<!--    </li>-->
+<?php //elseif ($admin_info->nickname == $dlmn): ?>
+<!--    <li>-->
+<!--        <a href="--><?php //echo base_url('agency/toplienminhmien') ?><!--">-->
+<!--            <i class="fa fa-dashboard"></i> <span>Top liên minh miền nam</span>-->
+<!--        </a>-->
+<!--    </li>-->
+<?php
+//elseif ($admin_info->status == "A"):
+?>
+<!--    <li>-->
+<!--        <a href="--><?php //echo base_url('agency/toplienminh2mien') ?><!--">-->
+<!--            <i class="fa fa-dashboard"></i> <span>Top liên minh 2 miền</span>-->
+<!--        </a>-->
+<!--    </li>-->
+<!---->
+<!--    --><?php //elseif ($admin_info->nickname == $daily): ?>
+<!--    <li>-->
+<!--        <a href="--><?php //echo base_url('agency/toplienminh2mien') ?><!--">-->
+<!--            <i class="fa fa-dashboard"></i> <span>Top liên minh 2 miền</span>-->
+<!--        </a>-->
+<!--    </li>-->
+<?php //endif; ?>
 
 
 <?php //if ($admin_info->nickname == "tongdailymb" || $admin_info->nickname == "tongdailymn") : ?>
@@ -104,26 +113,40 @@
 <!--        </a>-->
 <!--    </li>-->
 <?php //endif; ?>
-<li>
-    <a href="<?php echo base_url('agency/topdoanhsoban') ?>">
-        <i class="fa fa-dashboard"></i> <span>Top doanh số bán</span>
-    </a>
-</li>
-<?php if ($admin_info->nickname == "tongdailymb") : ?>
+
+<?php if ($admin_info->nickname == $daily || $admin_info->status == "A") : ?>
+    <li>
+        <a href="<?php echo base_url('agency/topdoanhsoban') ?>">
+            <i class="fa fa-dashboard"></i> <span>Top doanh số bán</span>
+        </a>
+    </li>
+
+<?php endif; ?>
+<?php if ($admin_info->nickname == $dlmb) : ?>
     <li>
         <a href="<?php echo base_url('agency/topdoanhsobanmien') ?>">
             <i class="fa fa-dashboard"></i> <span>Top doanh số bán miền bắc</span>
         </a>
     </li>
-<?php elseif ($admin_info->nickname == "tongdailymn"): ?>
+<?php
+elseif ($admin_info->nickname == $dlmn): ?>
     <li>
         <a href="<?php echo base_url('agency/topdoanhsobanmien') ?>">
             <i class="fa fa-dashboard"></i> <span>Top doanh số bán miền nam</span>
         </a>
     </li>
 
+
 <?php
 elseif ($admin_info->status == "A"): ?>
+    <li>
+        <a href="<?php echo base_url('agency/topdsban2mien') ?>">
+            <i class="fa fa-dashboard"></i> <span>Top doanh số bán 2 miền</span>
+        </a>
+    </li>
+
+<?php
+elseif ($admin_info->nickname == $daily): ?>
     <li>
         <a href="<?php echo base_url('agency/topdsban2mien') ?>">
             <i class="fa fa-dashboard"></i> <span>Top doanh số bán 2 miền</span>
@@ -158,7 +181,7 @@ elseif ($admin_info->status == "A"): ?>
                     
                 </ul>
             </li>-->
-<?php if ($admin_info->nickname == "tongdailymb" || $admin_info->nickname == "tongdailymn") : ?>
+<?php if ($admin_info->nickname == $dlmb || $admin_info->nickname == $dlmn) : ?>
 <?php else: ?>
     <li>
         <a href="<?php echo base_url('freeze') ?>">
@@ -208,7 +231,7 @@ elseif ($admin_info->status == "A"): ?>
 					   </ul>
                </li> -->
 <?php endif; ?>
-<?php if ($admin_info->nickname == "tongdaily") : ?>
+<?php if ($admin_info->nickname == $daily) : ?>
     <li>
         <a href="<?php echo base_url('user/transactiontongdaily') ?>">
             <i class="fa fa-dashboard"></i><span>Lịch sủ giao dịch tổng đại lý</span>

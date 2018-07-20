@@ -1,4 +1,4 @@
-<?php if ($admin_info->nickname == "tongdaily") : ?>
+<?php if ($admin_info->nickname == $daily) : ?>
 <section class="content-header">
     <h1>
         Lịch sử giao dịch tổng đại lý

@@ -1,6 +1,6 @@
 
 
-<?php if ($admin_info->nickname == "tongdailymb" || $admin_info->nickname == "tongdailymn") : ?>
+<?php if ($admin_info->nickname == $dlmb || $admin_info->nickname == $dlmn) : ?>
 
 <section class="content-header">
     <h1>

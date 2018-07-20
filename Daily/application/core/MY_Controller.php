@@ -46,6 +46,9 @@ Class MY_Controller extends CI_Controller
 			$this->data['accessToken'] = $this->session->userdata('accessToken');
             $admin_login = $this->session->userdata('user_admindaily_login');
             $this->data['login'] = $admin_login;
+            $this->data['dlmn']  = "tongdailymn";
+            $this->data['dlmb']  = "tongdailymb";
+
             if ($admin_login) {
                 $admin_info = $this->useragent_model->get_info($admin_login);
                 $this->data['admin_info'] = $admin_info;
@@ -54,6 +57,8 @@ Class MY_Controller extends CI_Controller
             $this->_check_login();
 
             }
+
+
 
         }
     }

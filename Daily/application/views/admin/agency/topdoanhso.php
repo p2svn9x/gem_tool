@@ -111,7 +111,11 @@
         if ($("#statususer").val() == "A") {
             topDoanhSoAdmin();
         } else if ($("#statususer").val() == "D") {
-            topDoanhSoAgent();
+            if($("#nickname").val() == "<?php echo $daily ?>"){
+                topDoanhSoAdmin();
+            }else{
+                topDoanhSoAgent();
+            }
         }
     });
     $("#search_tran").click(function () {
@@ -123,7 +127,12 @@
         if ($("#statususer").val() == "A") {
             topDoanhSoAdmin();
         } else if ($("#statususer").val() == "D") {
-            topDoanhSoAgent();
+            if($("#nickname").val() == "<?php echo $daily ?>"){
+                topDoanhSoAdmin();
+            }else{
+                topDoanhSoAgent();
+            }
+
         }
     });
      function listtopdoanhso(stt, agentName, nickName, total,bonusFix,bonusMore,bonusTotal,bonusByVinCash,bonusByVinplayCard,percent) {

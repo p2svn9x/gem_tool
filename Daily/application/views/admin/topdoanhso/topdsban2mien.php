@@ -1,76 +1,84 @@
-<section class="content-header">
-    <h1>
-        Top doanh số bán 2 miền
-    </h1>
-</section>
+<?php if ($admin_info->status == "A" || $admin_info->nickname == $daily) : ?>
 
-<input type="hidden" value="<?php echo $admin_info->status ?>" id="statususer">
-<input type="hidden" value="<?php echo $admin_info->nickname ?>" id="nickname">
-<input type="hidden" value="<?php echo $admin_info->nickname ?>" id="hdnnickname">
-<section class="content">
-    <div class="row">
-        <div class="col-xs-12">
-            <div class="box">
-                <div class="box-body">
-                    <div class="form-group">
-                        <div class="row">
-                            <label class="col-sm-1 control-label">Tháng:</label>
+    <section class="content-header">
+        <h1>
+            Top doanh số bán 2 miền
+        </h1>
+    </section>
 
-                            <div class="col-sm-2">
-                                <div class="input-group date" id="datetimepicker1">
-                                    <input type="text" class="form-control" id="fromDate" name="fromDate"
-                                           value="<?php echo $this->input->post("fromDate") ?>">
+    <input type="hidden" value="<?php echo $admin_info->status ?>" id="statususer">
+    <input type="hidden" value="<?php echo $admin_info->nickname ?>" id="nickname">
+    <input type="hidden" value="<?php echo $admin_info->nickname ?>" id="hdnnickname">
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-sm-1 control-label">Tháng:</label>
+
+                                <div class="col-sm-2">
+                                    <div class="input-group date" id="datetimepicker1">
+                                        <input type="text" class="form-control" id="fromDate" name="fromDate"
+                                               value="<?php echo $this->input->post("fromDate") ?>">
                                     <span class="input-group-addon">
 												<span class="glyphicon glyphicon-calendar"></span>
 											</span>
-                                    <input type="hidden" id="startDate">
-                                    <input type="hidden" id="endDate">
+                                        <input type="hidden" id="startDate">
+                                        <input type="hidden" id="endDate">
+                                    </div>
                                 </div>
-                            </div>
-                            <label class="col-sm-1 control-label" style="display:none">Đến ngày:</label>
+                                <label class="col-sm-1 control-label" style="display:none">Đến ngày:</label>
 
-                            <div class="col-sm-2" style="display:none">
-                                <div class="input-group date" id="datetimepicker2">
-                                    <input type="text" class="form-control" id="toDate" name="toDate"
-                                           value="<?php echo $this->input->post("toDate") ?>"> <span
-                                        class="input-group-addon">
+                                <div class="col-sm-2" style="display:none">
+                                    <div class="input-group date" id="datetimepicker2">
+                                        <input type="text" class="form-control" id="toDate" name="toDate"
+                                               value="<?php echo $this->input->post("toDate") ?>"> <span
+                                            class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
 </span>
+                                    </div>
                                 </div>
+                                <div class="col-sm-1"><input type="submit" value="Tìm kiếm" name="submit"
+                                                             class="btn btn-primary pull-right" id="search_tran"></div>
+
                             </div>
-                            <div class="col-sm-1"><input type="submit" value="Tìm kiếm" name="submit"
-                                                         class="btn btn-primary pull-right" id="search_tran"></div>
-
                         </div>
+
+                        <div style="width: 100%;float: left;color: #ff0000;" id="error"></div>
+
+                        <div class="col-xs-12 col-sm-6 col-md-6" id="table1">
+
+
+                            <h1 id="resultsearch"></h1>
+                        </div>
+                        <div id="spinner" class="spinner" style="">
+                            <img id="img-spinner" src="<?php echo public_url('admin/images/gif-load.gif') ?>"
+                                 alt="Loading"/>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6" id="table2">
+
+
+                            <h1 id="resultsearch1"></h1>
+                        </div>
+                        <div id="spinner1" class="spinner" style="">
+                            <img id="img-spinner" src="<?php echo public_url('admin/images/gif-load.gif') ?>"
+                                 alt="Loading"/>
+                        </div>
+
                     </div>
-
-                    <div style="width: 100%;float: left;color: #ff0000;" id="error"></div>
-
-                    <div class="col-xs-12 col-sm-6 col-md-6" id="table1">
-
-
-                        <h1 id="resultsearch"></h1>
-                    </div>
-                    <div id="spinner" class="spinner" style="">
-                        <img id="img-spinner" src="<?php echo public_url('admin/images/gif-load.gif') ?>"
-                             alt="Loading"/>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-6" id="table2">
-
-
-                        <h1 id="resultsearch1"></h1>
-                    </div>
-                    <div id="spinner1" class="spinner" style="">
-                        <img id="img-spinner" src="<?php echo public_url('admin/images/gif-load.gif') ?>"
-                             alt="Loading"/>
-                    </div>
-
                 </div>
             </div>
         </div>
-    </div>
-</section>
-
+    </section>
+    <?php else: ?>
+    <section class="content-header">
+        <h1>
+            Bạn không được phân quyền
+        </h1>
+    </section>
+<?php endif; ?>
 <style>
     .spinner {
         position: fixed;
@@ -142,12 +150,13 @@ function listtopdoanhsoAgent(index, agentName, nickName, total, bonusFix, bonusM
     html += "<td style='text-align: center'>" + (index + 1) + "</td>";
     html += "<td>" + agentName + "</td>";
     html += "<td>" + nickName + "</td>";
-    html += "<td style='display: none'>" + commaSeparateNumber(total) + "</td>";
+    html += "<td>" + commaSeparateNumber(total) + "</td>";
+    html += "<td>" + commaSeparateNumber(bonusTotal) + "</td>";
 
     if ($("#hdnnickname").val() == nickName) {
-        html += "<td style='display:none>" + commaSeparateNumber(bonusFix) + "</td>";
-        html += "<td >" + commaSeparateNumber(bonusMore) + "</td>";
-        html += "<td style='display:none>" + commaSeparateNumber(bonusTotal) + "</td>";
+        html += "<td style='display:none'>" + commaSeparateNumber(bonusFix) + "</td>";
+        html += "<td style='display:none' >" + commaSeparateNumber(bonusMore) + "</td>";
+        html += "<td style='display:none'>" + commaSeparateNumber(bonusTotal) + "</td>";
         html += "<td style='display:none'>" + commaSeparateNumber(bonusByVinCash) + "</td>";
         html += "<td style='display:none'>" + commaSeparateNumber(bonusByVinplayCard) + "</td>";
         html += "<td style='display:none'>" + percent + ' %' + "</td>";
@@ -171,7 +180,7 @@ function topDoanhSoAgent() {
         type: "POST",
         url: "<?php echo base_url('TranferAjax/topDoanhSoBanDlMien') ?>",
         data: {
-            nickName: "tongdailymb",
+            nickName: "<?php echo $dlmb ?>",
             timestart: $("#startDate").val(),
             timeend: $("#endDate").val(),
             month: $("#fromDate").val()
@@ -193,7 +202,7 @@ function topDoanhSoAgent() {
                 result += ' <th style="text-align: center">TOP</th>';
                 result += ' <th>Tên đại lý</th>';
                 result += ' <th>Nickname</th>';
-                result += ' <th style="display: none">Doanh số</th>';
+                result += ' <th>Doanh số</th>';
                 result += ' <th style="display:none">Thưởng cố định(Vin)</th>';
                 result += ' <th>Thưởng doanh số(Vin)</th>';
                 result += ' <th style="display:none">Tổng thưởng(Vin)</th>';
@@ -228,7 +237,7 @@ function topDoanhSoAgent1() {
         type: "POST",
         url: "<?php echo base_url('TranferAjax/topDoanhSoBanDlMien') ?>",
         data: {
-            nickName: "tongdailymn",
+            nickName: "<?php echo $dlmn ?>",
             timestart: $("#startDate").val(),
             timeend: $("#endDate").val(),
             month: $("#fromDate").val()
@@ -250,7 +259,7 @@ function topDoanhSoAgent1() {
                 result += ' <th style="text-align: center">TOP</th>';
                 result += ' <th>Tên đại lý</th>';
                 result += ' <th>Nickname</th>';
-                result += ' <th style="display: none">Doanh số</th>';
+                result += ' <th>Doanh số</th>';
                 result += ' <th style="display:none">Thưởng cố định(Vin)</th>';
                 result += ' <th>Thưởng doanh số(Vin)</th>';
                 result += ' <th style="display:none">Tổng thưởng(Vin)</th>';

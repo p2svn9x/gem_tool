@@ -1,3 +1,6 @@
+
+<?php if ($admin_info->nickname == $dlmb || $admin_info->nickname == $dlmn) : ?>
+
 <section class="content-header">
     <h1>
         Top doanh số bán
@@ -60,6 +63,13 @@
         </div>
     </div>
 </section>
+<?php else: ?>
+    <section class="content-header">
+        <h1>
+            Bạn không được phân quyền
+        </h1>
+    </section>
+<?php endif; ?>
 
 <style>
     .spinner {
@@ -130,12 +140,13 @@ function listtopdoanhsoAgent(index, agentName, nickName, total,bonusFix,bonusMor
     html += "<td style='text-align: center'>" + (index +1) + "</td>";
     html += "<td>" + agentName + "</td>";
     html += "<td>" + nickName + "</td>";
-    html += "<td style='display: none'>" + commaSeparateNumber(total) + "</td>";
+    html += "<td>" + commaSeparateNumber(total) + "</td>";
+    html += "<td>" + commaSeparateNumber(bonusTotal) + "</td>";
 
     if($("#hdnnickname").val()==nickName){
-        html += "<td style='display:none>" + commaSeparateNumber(bonusFix) + "</td>";
-        html += "<td >" + commaSeparateNumber(bonusMore) + "</td>";
-        html += "<td style='display:none>" + commaSeparateNumber(bonusTotal) + "</td>";
+        html += "<td style='display:none'>" + commaSeparateNumber(bonusFix) + "</td>";
+        html += "<td style='display:none'>" + commaSeparateNumber(bonusMore) + "</td>";
+        html += "<td style='display:none'>" + commaSeparateNumber(bonusTotal) + "</td>";
         html += "<td style='display:none'>" + commaSeparateNumber(bonusByVinCash) + "</td>";
         html += "<td style='display:none'>" + commaSeparateNumber(bonusByVinplayCard) + "</td>";
         html += "<td style='display:none'>" + percent +' %' + "</td>";
@@ -159,7 +170,7 @@ function topDoanhSoAgent() {
         type: "POST",
         url: "<?php echo base_url('TranferAjax/topDoanhSoBanDlMien') ?>",
         data: {
-            nickName: $("#nickname").val(),
+            nickName: "<?php echo $admin_info->parent ?>",
             timestart: $("#startDate").val(),
             timeend: $("#endDate").val(),
             month: $("#fromDate").val()
@@ -180,7 +191,7 @@ function topDoanhSoAgent() {
                 result += ' <th style="text-align: center">TOP</th>';
                 result += ' <th>Tên đại lý</th>';
                 result += ' <th>Nickname</th>';
-                result += ' <th style="display: none">Doanh số</th>';
+                result += ' <th>Doanh số</th>';
                 result += ' <th style="display:none">Thưởng cố định(Vin)</th>';
                 result += ' <th>Thưởng doanh số(Vin)</th>';
                 result += ' <th style="display:none">Tổng thưởng(Vin)</th>';

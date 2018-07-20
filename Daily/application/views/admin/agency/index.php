@@ -28,7 +28,7 @@
                             <table id="example2" class="table table-bordered table-hover" style="width: 100%">
                                 <thead>
                                 <tr>
-									<?php if ($admin_info->nickname == "tongdaily") : ?>
+									<?php if ($admin_info->nickname == $daily) : ?>
 										<th>STT</th>
 										<th>Tên đại lý</th>
 										<th>Nick name</th>
@@ -61,7 +61,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-								  <?php if ($admin_info->nickname == "tongdaily") : ?>
+								  <?php if ($admin_info->nickname == $daily) : ?>
                                         <?php echo $list3; ?>
                                 <?php else: ?>
 											<?php if ($status == "D") : ?>
@@ -119,7 +119,7 @@
                 if (response == "Success")
                 {
                     $(btn).closest('tr').fadeOut("slow");
-                    window.location.href = "<?php echo base_url('') ?>"
+                    window.location.href = "<?php echo base_url('agency') ?>"
                 }
                 else
                 {
