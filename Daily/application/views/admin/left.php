@@ -16,13 +16,13 @@
 <?php if ($admin_info->nickname == "tongdailymb" || $admin_info->nickname == "tongdailymn") : ?>
     <li>
         <a href="<?php echo base_url("agency/listdailymien") ?>">
-            <i class="fa fa-dashboard"></i><span>Trang chủ</span>
+            <i class="fa fa-dashboard"></i><span>Danh sách đại lý trực thuộc </span>
         </a>
     </li>
 <?php else: ?>
     <li>
-        <a href="<?php echo base_url() ?>">
-            <i class="fa fa-dashboard"></i><span>Trang chủ</span>
+        <a href="<?php echo base_url("agency") ?>">
+            <i class="fa fa-dashboard"></i><span>Danh sách đại lý trực thuộc</span>
         </a>
     </li>
 
@@ -96,14 +96,14 @@
 <?php endif; ?>
 
 
-<?php if ($admin_info->nickname == "tongdailymb" || $admin_info->nickname == "tongdailymn") : ?>
-<?php else: ?>
-    <li>
-        <a href="<?php echo base_url('agency/topdscap2') ?>">
-            <i class="fa fa-dashboard"></i> <span>Top doanh số cấp 2</span>
-        </a>
-    </li>
-<?php endif; ?>
+<?php //if ($admin_info->nickname == "tongdailymb" || $admin_info->nickname == "tongdailymn") : ?>
+<?php //else: ?>
+<!--    <li>-->
+<!--        <a href="--><?php //echo base_url('agency/topdscap2') ?><!--">-->
+<!--            <i class="fa fa-dashboard"></i> <span>Top doanh số cấp 2</span>-->
+<!--        </a>-->
+<!--    </li>-->
+<?php //endif; ?>
 <li>
     <a href="<?php echo base_url('agency/topdoanhsoban') ?>">
         <i class="fa fa-dashboard"></i> <span>Top doanh số bán</span>

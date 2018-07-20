@@ -415,7 +415,7 @@ $("#setdaily2").click(function () {
                 email: $("#email").val()
             },
             success: function (res) {
-                window.location.href = "<?php echo base_url('') ?>";
+                window.location.href = "<?php echo base_url('agency') ?>";
             }
     });
 });
@@ -507,7 +507,7 @@ $("#setdaily1").click(function () {
         },
         success: function (response) {
            
-            window.location.href = "<?php echo base_url('') ?>";
+            window.location.href = "<?php echo base_url('agency') ?>";
         }
     });
 });

@@ -40,16 +40,13 @@
                             </div>
                             <div class="col-sm-1"><input type="submit" value="Tìm kiếm" name="submit"
                                                          class="btn btn-primary pull-right" id="search_tran"></div>
-                            <div class="col-sm-1"><input type="reset" value="Reset" name="submit"
-                                                         class="btn btn-primary pull-left" id="reset"
-                                                         onclick="window.location.href = '<?php echo base_url('agency/topdoanhso') ?>'; ">
-                            </div>
+
                         </div>
                     </div>
 
                     <div style="width: 100%;float: left;color: #ff0000;" id="error"></div>
                     <div class="col-xs-12 col-sm-6 col-md-6" id="table1">
-                        <h3>Miền Bắc</h3>
+
                         <div id="spinner" class="spinner" style="">
                             <img id="img-spinner" src="<?php echo public_url('admin/images/gif-load.gif') ?>"
                                  alt="Loading"/>
@@ -58,7 +55,7 @@
                     </div>
 
                     <div class="col-xs-12 col-sm-6 col-md-6" id="table2">
-                        <h3>Miền Nam</h3>
+
                         <div id="spinner1" class="spinner" style="">
                             <img id="img-spinner" src="<?php echo public_url('admin/images/gif-load.gif') ?>"
                                  alt="Loading"/>
@@ -125,7 +122,9 @@ $(document).ready(function () {
 
 });
 $("#search_tran").click(function () {
+
     $("#spinner").show();
+    $("#spinner1").show();
     var queryDate = $("#fromDate").val();
     dateParts = queryDate.match(/(\d+)/g);
     $("#startDate").val(FirstDayOfMonth(dateParts[1],dateParts[0]));
@@ -186,6 +185,7 @@ function topDoanhSoAgent() {
             } else {
                 var i = 1;
                 var result = "";
+                result += "<h3 class='text-center'>Miền Bắc</h3>"
                 result += '<table id="TblAgent" class="tablesorter table table-bordered table-hover">';
                 result += ' <thead>';
                 result += ' <tr>';
@@ -242,6 +242,7 @@ function topDoanhSoAgent1() {
             } else {
                 var i = 1;
                 var result = "";
+                result += "<h3 class='text-center'>Miền Nam</h3>"
                 result += '<table id="TblAgent" class="tablesorter table table-bordered table-hover">';
                 result += ' <thead>';
                 result += ' <tr>';

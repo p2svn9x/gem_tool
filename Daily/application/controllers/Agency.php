@@ -1120,7 +1120,7 @@ Class Agency extends MY_Controller
             }
 
 
-        } else if ($admininfo->status == "D") {
+        } else if ($admininfo->status == "D" && $admininfo->nickname != "tongdailymb" && $admininfo->nickname != "tongdailymn") {
             $input['where'] = array("parentid" => $admininfo->id);
             $list = $this->useragent_model->get_list($input);
             $listnn = array();
@@ -1139,6 +1139,27 @@ Class Agency extends MY_Controller
             }
 
         }
+        else if ($admininfo->nickname == "tongdailymb" || $admininfo->nickname == "tongdailymn" ) {
+           
+            $list = $this->useragent_model->get_list_daily_2_mien($admininfo->nickname);
+            $listnn = array();
+            $listnn1 = array();
+            if ($list != "") {
+                array_push($listnn, $admininfo->nickname);
+
+                foreach ($list as $row) {
+                    array_push($listnn1, $row->nickname);
+                }
+                $this->data['listnn1'] = implode(",", $listnn);
+                $this->data['listnn2'] = implode(",", $listnn1);
+            } else {
+                array_push($listnn, $admininfo->nickname);
+                $this->data['listnn1'] = implode(",", $listnn);
+            }
+
+        }
+
+
         $this->data['temp'] = 'admin/agency/doanhso';
         $this->load->view('admin/main', $this->data);
 

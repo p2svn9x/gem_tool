@@ -256,7 +256,7 @@
                 parent : "<?php echo $daily1->nickname ?>"
             },
             success: function (res) {
-               // window.location.href = "<?php echo base_url('') ?>";
+                window.location.href = "<?php echo base_url('agency') ?>";
             }
         });
     });
