@@ -1535,6 +1535,145 @@ Class Agency extends MY_Controller
 
     }
 
+
+    function listdailymien()
+    {
+
+        $admin_login = $this->session->userdata('user_admindaily_login');
+        $admin_info = $this->useragent_model->get_info($admin_login);
+        $list = $this->get_list_dl1($admin_info->nickname);
+        $this->data['list1'] = $list;
+        $this->data['temp'] = 'admin/user/listdlbacnam';
+        $this->load->view('admin/main', $this->data);
+    }
+
+    function get_list_dl1($nickname)
+    {
+        $str = "";
+        $lists = $this->useragent_model->get_list_daily_2_mien($nickname);
+        if (!empty($lists)) {
+            $i = 1;
+            foreach ($lists as $list) {
+                if ($list->active == 1) {
+                    $optinfo = readURLAPI($this->config->item('api_url') . '?c=407&nn=' . $list->nickname);
+                    $data = json_decode($optinfo);
+                    $info = $data->transactions;
+                    $totalVin = number_format($info->totalVin);
+                    $safe = number_format($info->safe);
+                    $vippoint = number_format($info->vippoint);
+                    $vippointsave = number_format($info->vippointsave);
+                    //level2
+                    $input['where'] = array("parentid" => $list->id);
+                    $sub_list = $this->useragent_model->get_list($input);
+
+                    $str .= "<tr>";
+                    $str .= " <td>$i</td>";
+                    $str .= " <td>$list->nameagent</td>";
+                    $str .= " <td>";
+                    $str .= "<a href=" . base_url('agency/listtranfer/' . $list->nickname) . " style='color: #37ca1e'>$list->nickname</a>";
+                    $str .= "</td>";
+                    $str .= " <td style='display:none'>$list->email</td>";
+                    $str .= " <td>$list->phone</td>";
+                    $str .= " <td>$list->address</td>";
+                    $str .= " <td>Đang hoạt động</td>";
+                    $str .= " <td>$totalVin</td>";
+                    $str .= " <td>$safe</td>";
+                    $str .= " <td>$vippoint</td>";
+                    $str .= " <td>$vippointsave</td>";
+
+                    $str .= " <td class='total-combat' style='color:#ff0000;font-weight:bold'></td>";
+                    $str .= "<td>";
+                    $str .= "<a href = " . base_url('agency/doanhso/' . $list->nickname . '/' . $list->id) . ">Chi tiết</a>";
+                    $str .= " </td>";
+
+                    if (!empty($sub_list)) {
+                        foreach ($sub_list as $row) {
+                            if ($row->active == 1) {
+                                $optinfo1 = readURLAPI($this->config->item('api_url') . '?c=407&nn=' . $row->nickname);
+                                $data1 = json_decode($optinfo1);
+                                $info1 = $data1->transactions;
+
+                                $str .= "<td class='combat' style='display:none'>$info1->totalVin";
+
+                                $str .= "</td>";
+                            }
+                        }
+                    }
+                    $str .= " <td class='combat' style='display:none'>$info->totalVin</td>";
+                    $str .= " <td class='combat' style='display:none'>$info->safe</td>";
+                    $str .= "</tr>";
+
+                    //kiem tra get subcategory co ton ai hay
+                    if (!empty($sub_list)) {
+                        foreach ($sub_list as $row) {
+                            if ($row->active == 1) {
+                                $optinfo1 = readURLAPI($this->config->item('api_url') . '?c=407&nn=' . $row->nickname);
+                                $data1 = json_decode($optinfo1);
+                                $info1 = $data1->transactions;
+                                $totalVin1 = number_format($info1->totalVin);
+                                $safe1 = number_format($info1->safe);
+                                $vippoint1 = number_format($info1->vippoint);
+                                $vippointsave1 = number_format($info1->vippointsave);
+                                $str .= "<tr >";  //kiem tra con parent hay ko
+                                $str .= " <td>$i</td>";
+                                $str .= " <td>$row->nameagent</td>";
+                                $str .= " <td>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<a href=" . base_url('agency/listtranfer/' . $row->nickname) . " style='color: #1b00ff'>$row->nickname</a></td>";
+                                $str .= " <td style='display:none'>$row->email</td>";
+                                $str .= " <td>$row->phone</td>";
+                                $str .= " <td>$row->address</td>";
+                                $str .= " <td>Đang hoạt động</td>";
+                                $str .= " <td>$totalVin1 </td>";
+                                $str .= " <td>$safe1</td>";
+                                $str .= " <td>$vippoint1</td>";
+                                $str .= " <td>$vippointsave1</td>";
+                                $str .= " <td >$totalVin1 </td>";
+                                $str .= " <td>";
+                                $str .= "<a href = " . base_url('agency/doanhso/' . $row->id . '/' . $row->nickname) . ">Chi tiết</a>";
+                                $str .= "</td>";
+
+                                $str .= "</tr>";
+
+                            }
+
+                        }
+                    }
+                    $i++;
+                }
+            }
+
+        }
+        return $str;
+    }
+
+
+    function toplienminhmien()
+    {
+
+        $this->data['temp'] = 'admin/topdoanhso/toplienminh';
+        $this->load->view('admin/main', $this->data);
+    }
+
+    function topdoanhsobanmien()
+    {
+
+        $this->data['temp'] = 'admin/topdoanhso/topdsban';
+        $this->load->view('admin/main', $this->data);
+    }
+
+
+    function topdsban2mien()
+    {
+
+        $this->data['temp'] = 'admin/topdoanhso/topdsban2mien';
+        $this->load->view('admin/main', $this->data);
+    }
+
+    function toplienminh2mien()
+    {
+
+        $this->data['temp'] = 'admin/topdoanhso/toplienminh2mien';
+        $this->load->view('admin/main', $this->data);
+    }
     
 
 }

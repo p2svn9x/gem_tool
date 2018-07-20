@@ -1,6 +1,10 @@
+
+
+<?php if ($admin_info->nickname == "tongdailymb" || $admin_info->nickname == "tongdailymn") : ?>
+
 <section class="content-header">
     <h1>
-        Danh sách đại lý cấp 1
+        Danh sách đại lý cấp 1 trực thuộc
     </h1>
 </section>
 <section class="content">
@@ -33,7 +37,7 @@
                                             <th>Vippoint tích lũy</th>
                                             <th>Tổng vin</th>
                                             <th>Doanh số</th>
-                                            <th>Hành động</th>
+
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -48,4 +52,13 @@
         </div>
     </div>
 </section>
+
+<?php else: ?>
+
+    <section class="content-header">
+        <h1>
+            Bạn không được phân quyền
+        </h1>
+    </section>
+<?php endif;?>
 

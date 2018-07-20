@@ -655,4 +655,36 @@ function UpdateProcess()
             }
         }
     }
+
+    function topDoanhSoDlMien()
+    {
+//        $admin_login = $this->session->userdata('user_admindaily_login');
+//        $admininfo = $this->useragent_model->get_info($admin_login);
+        $nickName = $this->input->post('nickName');
+        $timestart = $this->input->post('timestart');
+        $timeend = $this->input->post('timeend');
+        $month = $this->input->post('month');
+        $optinfo = $this->curl->simple_get($this->config->item('api_url2') . '?c=110&nn='  . '&ts=' . urlencode($timestart) . '&te=' . urlencode($timeend).'&month='. urlencode($month).'&pr='.$nickName);
+        if ($optinfo) {
+            echo $optinfo;
+        } else {
+            echo "1001";
+        }
+    }
+    function topDoanhSoBanDlMien(){
+
+//        $admin_login = $this->session->userdata('user_admindaily_login');
+//        $admininfo = $this->useragent_model->get_info($admin_login);
+        $nickName = $this->input->post('nickName');
+        $timestart = $this->input->post('timestart');
+        $timeend = $this->input->post('timeend');
+        $month = $this->input->post('month');
+        $optinfo = $this->curl->simple_get($this->config->item('api_url2') . '?c=36&nn='  . '&ts=' . urlencode($timestart) . '&te=' . urlencode($timeend).'&month='. urlencode($month).'&pr='.$nickName);
+        if ($optinfo) {
+            echo $optinfo;
+        } else {
+            echo json_encode(array('errorCode' => "1001"));
+        }
+    }
+
 }
