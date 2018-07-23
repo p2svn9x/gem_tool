@@ -269,7 +269,7 @@
                         $("#error").html("Nickname không tồn tại");
 
                     } else if (result == 4) {
-                        $("#error").html("chưa đăng ký bảo mật trên trang vinplay.com");
+                        $("#error").html("chưa đăng ký bảo mật trên trang gem.club");
 
                     } else if (result == 5) {
                         $("#error").html("odp sai");
