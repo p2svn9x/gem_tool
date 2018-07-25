@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/gem_tool/Daily';
+$config['base_url'] = 'http://localhost/gemtool/Daily';
 //$config['api_url'] = 'http://192.168.0.251:8082/api_backend';
 
 

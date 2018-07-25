@@ -43,6 +43,7 @@ Class Login extends MY_controller
             $nickname = json_decode(base64_decode($data->sessionKey))->nickname;
 			 $access = $data->accessToken;
            if($this->infouser($nickname,$access) == true){
+
                $this->log_login_admin($username,"Thành công",0);
                echo json_encode("1");
 

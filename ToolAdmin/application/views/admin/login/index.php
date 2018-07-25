@@ -169,7 +169,7 @@ $("#login").click(function () {
         success: function (res) {
             $("#spinner").hide();
            if(res == 1){
-               var baseurl = "<?php print admin_url(); ?>";
+               var baseurl = "<?php echo admin_url(); ?>";
                window.location.href = baseurl;
            }else if(res == 2){
                $("#validate-text").html("Tài khoản không phải là admin hoặc đại lý");
