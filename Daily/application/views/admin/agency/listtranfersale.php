@@ -309,19 +309,30 @@
             success: function (result) {
                 $("#spinner").hide();
 				 $("#error").html("");
+                var result1 = "";
                 var countrow = result.totalRecord;
                 $("#num").html(countrow);
 				  $("#totalvinsend").html("Tổng số vin nhận:"+commaSeparateNumber(result.totalVinSend));
                 if (result.transactions == "") {
                     $('#pagination-demo').css("display", "none");
                     $("#resultsearch").html("Không tìm thấy kết quả");
+                    $('#logaction').html("");
                 } else {
                     $("#resultsearch").html("");
+                    $("#totalvinsend").html("Tổng số vin nhận:"+commaSeparateNumber(result.totalVinSend));
+                    var stt = 1;
+                    $.each(result.transactions, function (index, value) {
+                        result1 += resulttranferlist(stt, value.nick_name_send, value.nick_name_receive, value.money_send, value.money_receive, value.fee, value.status, value.trans_time,value.top_ds);
+                        stt++
+                    });
+                    $('#logaction').html(result1);
+                    $('#pagination-demo').css("display", "block");
                     $('#pagination-demo').twbsPagination({
                         totalPages: result.total,
                         visiblePages: 5,
                         onPageClick: function (event, page) {
                             $("#spinner").show();
+                            var result1 = "";
                             $.ajax({
                                 type: "POST",
                                 url: "<?php echo base_url('TranferAjax/historyTransferSale') ?>",
@@ -339,12 +350,12 @@
                                     $("#spinner").hide();
 									  $("#totalvinsend").html("Tổng số vin nhận:"+commaSeparateNumber(result.totalVinSend));
 									$("#error").html("");
-                                    stt = 1;
+                                     var stt = 1;
                                     $.each(result.transactions, function (index, value) {
-                                        result += resulttranferlist(stt, value.nick_name_send, value.nick_name_receive, value.money_send, value.money_receive, value.fee, value.status, value.trans_time,value.top_ds);
+                                        result1 += resulttranferlist(stt, value.nick_name_send, value.nick_name_receive, value.money_send, value.money_receive, value.fee, value.status, value.trans_time,value.top_ds);
                                         stt++
                                     });
-                                    $('#logaction').html(result);
+                                    $('#logaction').html(result1);
                                     csstextdaily();
                                 }
 								,error: function(){

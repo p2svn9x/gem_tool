@@ -3,7 +3,7 @@
         Lịch sử chuyển khoản mua vin
     </h1>
 </section>
-<form action="<?php echo base_url("agency/listtranferbuy/$nickname")?>" method="post">
+<form action="<?php echo base_url("agency/listtranfersale/$nickname")?>" method="post">
     <input type="hidden" value="<?php echo $admin_info->status ?>" id="statususer" name="statususer">
     <input type="hidden" id="page1"  name="page1" >
     <input type="hidden" value="<?php echo $listnn ?>" id="listdaily1">
@@ -24,7 +24,7 @@
                                         <input type="text" id="nickname" name="nickname" class="form-control" value="<?php echo $nickname?>">
                                     </div>
 
-                                    <input type="hidden" id="hdnnickname" name="hdnnickname"  class="form-control"
+                                    <input type="hidden" id="hdnnickname"  name="hdnnickname" class="form-control"
                                            value="<?php echo $nickname ?>">
                                     <label class="col-sm-1 control-label">Trạng thái</label>
 
@@ -59,8 +59,8 @@
                         <span class="glyphicon glyphicon-calendar"></span>
 </span>
                                         </div>
-										 <input type="hidden" id="startDate">  
-                                            <input type="hidden" id="endDate"> 
+                                        <input type="hidden" id="startDate">
+                                        <input type="hidden" id="endDate">
                                     </div>
                                     <label class="col-sm-1 control-label" style="display:none">Đến ngày:</label>
 
@@ -76,7 +76,7 @@
                                                                  class="btn btn-primary pull-right" id="search_tran"></div>
                                     <div class="col-sm-1"><input type="reset" value="Reset" name="submit"
                                                                  class="btn btn-primary pull-left" id="reset"
-                                                                 onclick="window.location.href = '<?php echo base_url('agency/listtranfer') ?>'; ">
+                                                                 onclick="window.location.href = '<?php echo base_url('agency/listtranfersale') ?>'; ">
                                     </div>
                                 </div>
                             </div>
@@ -100,8 +100,8 @@
                         <span class="glyphicon glyphicon-calendar"></span>
 </span>
                                         </div>
-										<input type="hidden" id="startDate">  
-                                            <input type="hidden" id="endDate"> 
+                                        <input type="hidden" id="startDate">
+                                        <input type="hidden" id="endDate">
                                     </div>
                                     <label class="col-sm-1 control-label" style="display:none">Đến ngày:</label>
 
@@ -113,7 +113,7 @@
 </span>
                                         </div>
                                     </div>
-                                    <div class="col-sm-1"><input type="submit" value="Tìm kiếm" name="submit"
+                                    <div class="col-sm-1"><input type="button" value="Tìm kiếm" name="submit"
                                                                  class="btn btn-primary pull-right" id="search_tran"></div>
                                     <div class="col-sm-1"><input type="reset" value="Reset" name="submit"
                                                                  class="btn btn-primary pull-left" id="reset"
@@ -122,8 +122,8 @@
                                 </div>
                             </div>
                         <?php endif; ?>
-						<div style="width: 100%;float: left;color: #ff0000;" id="error"></div>
-						 <div style="width: 100%;text-align: left;margin-bottom: 20px;color: #ff0000" id="totalvinsend"></div>
+                        <div style="width: 100%;float: left;color: #ff0000;" id="error"></div>
+                        <div style="width: 100%;text-align: left;margin-bottom: 20px;color: #ff0000" id="totalvinsend"></div>
                         <div class="col-sm-12">
                             <table id="example2" class="table table-bordered table-hover">
                                 <thead>
@@ -188,251 +188,262 @@
 
 
 <script>
-   $(function () {
-         $('#datetimepicker1').datetimepicker({
-            format: 'MM/YYYY',
+$(function () {
+    $('#datetimepicker1').datetimepicker({
+        format: 'MM/YYYY',
 
-        });
-        $('#datetimepicker2').datetimepicker({
-            format: 'YYYY-MM-DD HH:mm:ss'
-        });
     });
-    $("#search_tran").click(function () {
-		$("#spinner").show();
-       var queryDate = $("#fromDate").val();
-        dateParts = queryDate.match(/(\d+)/g);
-        $("#startDate").val(FirstDayOfMonth(dateParts[1],dateParts[0]));
-        $("#endDate").val(LastDayOfMonth(dateParts[1],dateParts[0]));
-       listTranfer();
+    $('#datetimepicker2').datetimepicker({
+        format: 'YYYY-MM-DD HH:mm:ss'
     });
+});
+$("#search_tran").click(function () {
+    $("#spinner").show();
+    var queryDate = $("#fromDate").val();
+    dateParts = queryDate.match(/(\d+)/g);
+    $("#startDate").val(FirstDayOfMonth(dateParts[1],dateParts[0]));
+    $("#endDate").val(LastDayOfMonth(dateParts[1],dateParts[0]));
+    listTranfer();
+});
 
-    function resulttranferlist(stt, namesend, namerecive, moneysend, moneyrecive, fee, status, date,topds) {
-        var rs = "";
-        rs += "<tr>";
-        rs += "<td>" + stt + "</td>";
-        rs += "<td class ='idnamesend'>" + namesend + "</td>";
-        rs += "<td class = 'idnamerecive'>" + namerecive + "</td>";
-        rs += "<td>" + commaSeparateNumber(moneysend) + "</td>";
-        rs += "<td>" + commaSeparateNumber(moneyrecive) + "</td>";
-        rs += "<td>" + commaSeparateNumber(fee) + "</td>";
-        rs += "<td>" + statustranfer(status) + "</td>";
-        rs += "<td>" + date + "</td>";
-        if(topds==1){
+function resulttranferlist(stt, namesend, namerecive, moneysend, moneyrecive, fee, status, date,topds) {
+    var rs = "";
+    rs += "<tr>";
+    rs += "<td>" + stt + "</td>";
+    rs += "<td class ='idnamesend'>" + namesend + "</td>";
+    rs += "<td class = 'idnamerecive'>" + namerecive + "</td>";
+    rs += "<td>" + commaSeparateNumber(moneysend) + "</td>";
+    rs += "<td>" + commaSeparateNumber(moneyrecive) + "</td>";
+    rs += "<td>" + commaSeparateNumber(fee) + "</td>";
+    rs += "<td>" + statustranfer(status) + "</td>";
+    rs += "<td>" + date + "</td>";
+    if(topds==1){
         rs += "<td>Cộng doanh số</td>";
-        }
-        else{
-            rs += "<td>Hủy doanh số</td>";
-        }
-        rs += "</tr>";
-        return rs;
     }
-    $(document).ready(function () {
-        $("#spinner").show();
-		$("#fromDate").val(getFirtDayOfMonth());
-        var queryDate = $("#fromDate").val();
-        dateParts = queryDate.match(/(\d+)/g);
-        $("#startDate").val(FirstDayOfMonth(dateParts[1],dateParts[0]));
-        $("#endDate").val(LastDayOfMonth(dateParts[1],dateParts[0]));
-            listTranfer();
-    });
+    else{
+        rs += "<td>Hủy doanh số</td>";
+    }
+    rs += "</tr>";
+    return rs;
+}
+$(document).ready(function () {
+    $("#spinner").show();
+    $("#fromDate").val(getFirtDayOfMonth());
+    var queryDate = $("#fromDate").val();
+    dateParts = queryDate.match(/(\d+)/g);
+    $("#startDate").val(FirstDayOfMonth(dateParts[1],dateParts[0]));
+    $("#endDate").val(LastDayOfMonth(dateParts[1],dateParts[0]));
+    listTranfer();
+});
 
-    function csstextdaily() {
-        var listdl1 = $("#listdaily1").val().split(',');
-        var listdl2 = $("#listdaily2").val().split(',');
-        $("table tr td.idnamesend").each(function (index, value) {
-            $.each(listdl1, function (index1, value1) {
-                if (value1 == value.innerHTML) {
-                    $(this).text().css("color", "red");
-                }
-            });
-        });
-        $("table tr td.idnamerecive").each(function (index, value) {
-            $.each(listdl2, function (index1, value1) {
-                if (value1 == value.innerHTML) {
-                    $(this).text().css("color", "red");
-                }
-            });
-        });
-    }
-
-    function commaSeparateNumber(val) {
-        while (/(\d+)(\d{3})/.test(val.toString())) {
-            val = val.toString().replace(/(\d+)(\d{3})/, '$1' + ',' + '$2');
-        }
-        return val;
-    }
-    function statustranfer(feetran) {
-        var strresult;
-        switch (feetran) {
-            case 1:
-                strresult = "Tài khoản thường chuyển đại lý cấp 1";
-                break;
-            case 2:
-                strresult = "Tài khoản thường chuyển đại lý cấp 2";
-                break;
-            case 3:
-                strresult = "Đại lý cấp 1 chuyển tài khoản thường";
-                break;
-            case 4:
-                strresult = "Đại lý cấp 1 chuyển đại lý cấp 1";
-                break;
-            case 5:
-                strresult = "Đại lý cấp 1 chuyển đại lý cấp 2";
-                break;
-            case 6:
-                strresult = "Đại lý cấp 2 chuyển tài khoản thường";
-                break;
-            case 7:
-                strresult = "Đại lý cấp 2 chuyển đại lý cấp 1";
-                break;
-            case 8:
-                strresult = "Đại lý cấp 2 chuyển đại lý cấp 2";
-                break;
-        }
-        return strresult;
-    }
-    function listTranfer() {
-        $.ajax({
-            type: "POST",
-            url: "<?php echo base_url('TranferAjax/historyTransferBuy') ?>",
-            data: {
-                nicknamegui: $("#nickname").val(),
-                nicknamenhan: "",
-                status: $("#status").val(),
-                 timestart: $("#startDate").val(),
-                timeend: $("#endDate").val(),
-                month: $("#fromDate").val(),
-                topds:1,
-                p: 1
-            },
-            dataType: 'json',
-            success: function (result) {
-                $("#spinner").hide();
-				 $("#error").html("");
-                var countrow = result.totalRecord;
-                $("#num").html(countrow);
-				 $("#totalvinsend").html("Tổng số vin gửi:"+commaSeparateNumber(result.totalVinSend));
-                if (result.transactions == "") {
-                    $('#pagination-demo').css("display", "none");
-                    $("#resultsearch").html("Không tìm thấy kết quả");
-                } else {
-                    $("#resultsearch").html("");
-                    $('#pagination-demo').twbsPagination({
-                        totalPages: result.total,
-                        visiblePages: 5,
-                        onPageClick: function (event, page) {
-                            $("#spinner").show();
-                            $.ajax({
-                                type: "POST",
-                                url: "<?php echo base_url('TranferAjax/historyTransferBuy') ?>",
-                                data: {
-                                    nicknamegui: $("#hdnnickname").val(),
-                                    nicknamenhan: "",
-                                    status: $("#status").val(),
-                                    timestart: $("#fromDate").val(),
-                                    timeend: $("#toDate").val(),
-                                    p: page
-                                },
-                                dataType: 'json',
-                                success: function (result) {
-                                    $("#spinner").hide();
-									$("#error").html("");
-                                    stt = 1;
-									  $("#totalvinsend").html("Tổng số vin gửi:"+commaSeparateNumber(result.totalVinSend));
-                                    $.each(result.transactions, function (index, value) {
-                                        result += resulttranferlist(stt, value.nick_name_send, value.nick_name_receive, value.money_send, value.money_receive, value.fee, value.status, value.trans_time,value.top_ds);
-                                        stt++
-                                    });
-                                    $('#logaction').html(result);
-                                    csstextdaily();
-                                }
-								,error: function(){
-									$("#spinner").hide();
-									$("#error").html("Kết nối không ổn định.Vui lòng thử lại sau");          
-								},
-								timeout:30000
-                            });
-                        }
-                    });
-                }
+function csstextdaily() {
+    var listdl1 = $("#listdaily1").val().split(',');
+    var listdl2 = $("#listdaily2").val().split(',');
+    $("table tr td.idnamesend").each(function (index, value) {
+        $.each(listdl1, function (index1, value1) {
+            if (value1 == value.innerHTML) {
+                $(this).text().css("color", "red");
             }
-			,error: function(){
-                     $("#spinner").hide();
-                     $("#error").html("Kết nối không ổn định.Vui lòng thử lại sau");          
-                    },
-                    timeout:30000
         });
-    }
-//tinh tong
-     function getFirtDayOfMonth() {
-        var date = new Date();
-        var thangtruoc = '';
-        var ngaytruoc = '';
-        var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
-        if (firstDay.getMonth() < 10) {
-            thangtruoc = "0" + (firstDay.getMonth() + 1);
-        }
-        else {
-            thangtruoc = firstDay.getMonth() + 1;
-        }
-        if (firstDay.getDate() < 10) {
-            ngaytruoc = "0" + firstDay.getDate();
-        }
-        else {
-            ngaytruoc = firstDay.getDate();
-        }
-        $("#startDate").val( firstDay.getFullYear() + '-' + (thangtruoc) + '-' + (ngaytruoc) + " " + "00:00:00")
-        return thangtruoc +'/'+firstDay.getFullYear();
-    }
+    });
+    $("table tr td.idnamerecive").each(function (index, value) {
+        $.each(listdl2, function (index1, value1) {
+            if (value1 == value.innerHTML) {
+                $(this).text().css("color", "red");
+            }
+        });
+    });
+}
 
-    function getLastDayOfMonth() {
-        var date = new Date();
-        var thangsau = '';
-        var ngaysau = '';
-        var lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
-        if (lastDay.getMonth() < 10) {
-            thangsau = "0" + (lastDay.getMonth() + 1);
-        }
-        else {
-            thangsau = lastDay.getMonth() + 1;
-        }
-        if (lastDay.getDate() < 10) {
-            ngaysau = "0" + lastDay.getDate();
-        }
-        else {
-            ngaysau = lastDay.getDate();
-        }
-         $("#endDate").val(lastDay.getFullYear() + '-' + (thangsau) + '-' + (ngaysau) + " " + "23:59:59")
-        return lastDay.getFullYear() + '-' + (thangsau) + '-' + (ngaysau) + " " + "23:59:59";
+function commaSeparateNumber(val) {
+    while (/(\d+)(\d{3})/.test(val.toString())) {
+        val = val.toString().replace(/(\d+)(\d{3})/, '$1' + ',' + '$2');
     }
-    function LastDayOfMonth(Year, Month) {
-        var nowDate=new Date((new Date(Year, Month,1))-1 );
-        return formatLastDate(nowDate);
+    return val;
+}
+function statustranfer(feetran) {
+    var strresult;
+    switch (feetran) {
+        case 1:
+            strresult = "Tài khoản thường chuyển đại lý cấp 1";
+            break;
+        case 2:
+            strresult = "Tài khoản thường chuyển đại lý cấp 2";
+            break;
+        case 3:
+            strresult = "Đại lý cấp 1 chuyển tài khoản thường";
+            break;
+        case 4:
+            strresult = "Đại lý cấp 1 chuyển đại lý cấp 1";
+            break;
+        case 5:
+            strresult = "Đại lý cấp 1 chuyển đại lý cấp 2";
+            break;
+        case 6:
+            strresult = "Đại lý cấp 2 chuyển tài khoản thường";
+            break;
+        case 7:
+            strresult = "Đại lý cấp 2 chuyển đại lý cấp 1";
+            break;
+        case 8:
+            strresult = "Đại lý cấp 2 chuyển đại lý cấp 2";
+            break;
     }
-     function formatLastDate(date) {
-            var d = new Date(date),
-                month = '' + (d.getMonth() + 1),
-                day = '' + d.getDate() +" 23:59:59",
-                year = d.getFullYear() ;
- 
-            if (month.length < 2) month = '0' + month;
-            if (day.length < 11) day = '0' + day;
-            
-            return [year, month, day].join('-');
+    return strresult;
+}
+function listTranfer() {
+    $.ajax({
+        type: "POST",
+        url: "<?php echo base_url('TranferAjax/historyTransferBuy') ?>",
+        data: {
+            nicknamegui:$("#nickname").val(),
+            nicknamenhan: "",
+            status: $("#status").val(),
+            timestart: $("#startDate").val(),
+            timeend: $("#endDate").val(),
+            month: $("#fromDate").val(),
+            topds:1,
+            p: 1
+        },
+        dataType: 'json',
+        success: function (result) {
+            $("#spinner").hide();
+            $("#error").html("");
+            var result1 = "";
+            var countrow = result.totalRecord;
+            $("#num").html(countrow);
+
+            if (result.transactions == "") {
+                $('#pagination-demo').css("display", "none");
+                $("#resultsearch").html("Không tìm thấy kết quả");
+                $('#logaction').html("");
+            } else {
+                $("#resultsearch").html("");
+                $("#totalvinsend").html("Tổng số vin gửi:"+commaSeparateNumber(result.totalVinSend));
+                var stt = 1;
+                $.each(result.transactions, function (index, value) {
+                    result1 += resulttranferlist(stt, value.nick_name_send, value.nick_name_receive, value.money_send, value.money_receive, value.fee, value.status, value.trans_time,value.top_ds);
+                    stt++
+                });
+                $('#logaction').html(result1);
+                $('#pagination-demo').css("display", "block");
+                $('#pagination-demo').twbsPagination({
+                    totalPages: result.total,
+                    visiblePages: 5,
+                    onPageClick: function (event, page) {
+                        $("#spinner").show();
+                        var result1 = "";
+                        $.ajax({
+                            type: "POST",
+                            url: "<?php echo base_url('TranferAjax/historyTransferBuy') ?>",
+                            data: {
+                                nicknamegui:$("#nickname").val(),
+                                nicknamenhan: "",
+                                status: $("#status").val(),
+                                timestart: $("#startDate").val(),
+                                timeend: $("#endDate").val(),
+                                month: $("#fromDate").val(),
+                                p: page
+                            },
+                            dataType: 'json',
+                            success: function (result) {
+                                $("#spinner").hide();
+                                $("#totalvinsend").html("Tổng số vin gửi:"+commaSeparateNumber(result.totalVinSend));
+                                $("#error").html("");
+                                var stt = 1;
+                                $.each(result.transactions, function (index, value) {
+                                    result1 += resulttranferlist(stt, value.nick_name_send, value.nick_name_receive, value.money_send, value.money_receive, value.fee, value.status, value.trans_time,value.top_ds);
+                                    stt++
+                                });
+                                $('#logaction').html(result1);
+                                csstextdaily();
+                            }
+                            ,error: function(){
+                                $("#spinner").hide();
+                                $("#error").html("Kết nối không ổn định.Vui lòng thử lại sau");
+                            },
+                            timeout:30000
+                        });
+                    }
+                });
+            }
+        },error: function(){
+            $("#spinner").hide();
+            $("#error").html("Kết nối không ổn định.Vui lòng thử lại sau");
+        },
+        timeout:30000
+    });
+}
+//tinh tong
+function getFirtDayOfMonth() {
+    var date = new Date();
+    var thangtruoc = '';
+    var ngaytruoc = '';
+    var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+    if (firstDay.getMonth() < 10) {
+        thangtruoc = "0" + (firstDay.getMonth() + 1);
     }
-    function FirstDayOfMonth(Year, Month) {
-        var nowDate=new Date(Year, Month-1, 1);
-        return formatFirstDate(nowDate);
+    else {
+        thangtruoc = firstDay.getMonth() + 1;
     }
-     function formatFirstDate(date) {
-            var d = new Date(date),
-                month = '' + (d.getMonth() + 1),
-                day = '' + d.getDate() +" 00:00:00",
-                year = d.getFullYear() ;
- 
-            if (month.length < 2) month = '0' + month;
-            if (day.length < 11) day = '0' + day;
-            ;
-            return [year, month, day].join('-');
-        }
+    if (firstDay.getDate() < 10) {
+        ngaytruoc = "0" + firstDay.getDate();
+    }
+    else {
+        ngaytruoc = firstDay.getDate();
+    }
+    $("#startDate").val( firstDay.getFullYear() + '-' + (thangtruoc) + '-' + (ngaytruoc) + " " + "00:00:00")
+    return thangtruoc +'/'+firstDay.getFullYear();
+}
+
+function getLastDayOfMonth() {
+    var date = new Date();
+    var thangsau = '';
+    var ngaysau = '';
+    var lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+    if (lastDay.getMonth() < 10) {
+        thangsau = "0" + (lastDay.getMonth() + 1);
+    }
+    else {
+        thangsau = lastDay.getMonth() + 1;
+    }
+    if (lastDay.getDate() < 10) {
+        ngaysau = "0" + lastDay.getDate();
+    }
+    else {
+        ngaysau = lastDay.getDate();
+    }
+    $("#endDate").val(lastDay.getFullYear() + '-' + (thangsau) + '-' + (ngaysau) + " " + "23:59:59")
+    return lastDay.getFullYear() + '-' + (thangsau) + '-' + (ngaysau) + " " + "23:59:59";
+}
+function LastDayOfMonth(Year, Month) {
+    var nowDate=new Date((new Date(Year, Month,1))-1 );
+    return formatLastDate(nowDate);
+}
+function formatLastDate(date) {
+    var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate() +" 23:59:59",
+        year = d.getFullYear() ;
+
+    if (month.length < 2) month = '0' + month;
+    if (day.length < 11) day = '0' + day;
+
+    return [year, month, day].join('-');
+}
+function FirstDayOfMonth(Year, Month) {
+    var nowDate=new Date(Year, Month-1, 1);
+    return formatFirstDate(nowDate);
+}
+function formatFirstDate(date) {
+    var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate() +" 00:00:00",
+        year = d.getFullYear() ;
+
+    if (month.length < 2) month = '0' + month;
+    if (day.length < 11) day = '0' + day;
+    ;
+    return [year, month, day].join('-');
+}
 </script>
