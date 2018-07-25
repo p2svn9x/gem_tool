@@ -1,0 +1,176 @@
+﻿body {
+}
+
+#content_unity {
+    margin-top: 150px;
+    display:none;
+}
+
+/*fix screen 1366px*/
+/*@media screen and (max-width:1366px) {
+    #content_unity {
+        margin-top: 60px;
+        margin-left: 14% !important;
+    }
+}*/
+
+/*end - fix screen 1366px*/
+
+/*dragmini game*/
+
+.dragbaucua {
+    padding: 2em;
+    /*background-color: rgba(255, 0, 0, 0.64);*/
+    position: absolute;
+    margin-left: 25px;
+    width: 430px;
+    height: 65px;
+}
+
+.dragbaucuaCircle {
+    width: 160px;
+    height: 240px;
+    /*background: #C30;*/
+    text-align: center;
+    padding: 50px;
+    color: #fff;
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+    border-radius: 10px;
+    /*background-color: rgba(255, 0, 0, 0.5);*/
+    position: absolute;
+    margin-top: 65px;
+    margin-left: 10px;
+}
+
+.dragminipoker {
+    padding: 2em;
+    /*background-color: rgba(255, 0, 0, 0.64);*/
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 50px;
+    width: 280px;
+    height: 147px;
+}
+
+.dragTaiXiu_Left {
+    padding: 2em;
+    /*background-color: rgba(255, 0, 0, 0.64);*/
+    position: absolute;
+    margin-top: 240px;
+    margin-left: 130px;
+    width: 160px;
+    height: 140px;
+}
+
+.dragTaiXiu_Right {
+    padding: 2em;
+    /*background-color: rgba(255, 0, 0, 0.5);*/
+    position: absolute;
+    margin-top: 240px;
+    margin-left: 410px;
+    width: 90px;
+}
+
+.dragcircle {
+    width: 170px;
+    height: 170px;
+    /*background: #C30;*/
+    text-align: center;
+    padding: 50px;
+    color: #fff;
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+    border-radius: 100px;
+    /*background-color: rgba(255, 0, 0, 0.5);*/
+    position: absolute;
+    margin-top: 285px;
+    margin-left: 265px;
+}
+
+.dragTaiXiu_Bottom {
+    padding: 2em;
+    /*background-color: rgba(255, 0, 0, 0.5);*/
+    position: absolute;
+    margin-top: 300px;
+    margin-left: 410px;
+    width: 150px;
+    height: 80px;
+}
+
+
+/* dragTaiXiu unity*/
+.dragTaiXiu_Left_Unity {
+    padding: 2em;
+    /*background-color: rgba(255, 0, 0, 0.64);*/
+    position: absolute;
+     margin-top: 140px;
+    margin-left: 100px;
+    width: 160px;
+    height: 140px;
+}
+
+.dragTaiXiu_Right_Unity {
+    padding: 2em;
+    /*background-color: rgba(255, 0, 0, 0.5);*/
+    position: absolute;
+       margin-top: 140px;
+    margin-left: 385px;
+    width: 90px
+}
+
+.dragcircle_Unity {
+    width: 50px;
+    height: 170px;
+    /* background: #C30; */
+    text-align: center;
+    padding: 40px;
+    color: #fff;
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+    border-radius: 100px;
+    /*background-color: rgba(255, 0, 0, 0.5);*/
+    position: absolute;
+    margin-top: 175px;
+    margin-left: 235px;
+}
+.dragcircle_Unity2 {
+        width: 50px;
+    height: 170px;
+    /* background: #C30; */
+    text-align: center;
+    padding: 40px;
+    color: #fff;
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+    border-radius: 100px;
+    /*background-color: rgba(255, 0, 0, 0.5);*/
+    position: absolute;
+    margin-top: 175px;
+    margin-left: 335px;
+}
+
+.dragTaiXiu_Bottom_Unity {
+    padding: 2em;
+    /*background-color: rgba(255, 0, 0, 0.5);*/
+    position: absolute;
+    margin-top: 190px;
+    margin-left: 380px;
+    width: 150px;
+    height: 80px;
+}
+
+#divQuickAccess {
+    position: absolute;
+    top: 50px;
+    display: block;
+    z-index: 99;
+    right: 0%;
+}
+
+@media all and (max-width: 1366px) {
+    #divQuickAccess {
+           top: 260px ;
+    }
+}
+

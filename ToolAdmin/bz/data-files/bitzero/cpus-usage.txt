@@ -1,0 +1,41 @@
+{
+  "title":{
+    "text":"CPUs Usage",
+    "style":"{font-size: 16px; margin-top: 0; margin-bottom: 0; padding-top: 0; padding-bottom: 0; }"
+  },
+
+  "x_axis": {
+		"colour": "#aaaaaa",
+		"grid-colour": "#eeeeee",
+		"stroke": 1,
+		"tick-height": 4,
+		"labels": {
+			"visible": false
+		}
+	},
+
+  "y_label__label_style":"12,#669999",
+  "y_axis":{ "steps": 50, "min" : 0, "max":100 },
+  
+  "y_label_2__label_style":"12,#DD3030",
+  
+  
+  "elements":[
+    {
+      "type":      "line",
+      "colour":    "#736AFF",
+      "text":      "Cpus usage ( % )",
+      "font-size": 10,
+      "width":     2,
+      "values" :   [0]
+    }
+  ],
+
+  "tooltip":{
+    "shadow":true,
+    "stroke":2,
+    "colour":"#404040",
+    "title":"{font-size: 14px; color: #905050;}",
+    "body":"{font-size: 10px; font-weight: bold; color: #9090ff;}"
+  }
+}

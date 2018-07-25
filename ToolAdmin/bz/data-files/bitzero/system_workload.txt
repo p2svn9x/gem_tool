@@ -1,0 +1,54 @@
+{
+	 "title":{
+	"text":"System Worload (%) ",
+	"style":"{color: #736AFF; font-size: 16;}"
+	  },
+  
+"elements": [
+	{
+		"type": "area",
+		"text":      "Current ",
+		"fill-alpha": 0.8,
+		"values": [],
+		"width": 2,
+		"dot-size": 3,
+		"halo-size": 2,
+		"colour": "#ff9900",
+		"fill": "#dbecf6"
+	},
+	{
+		"type":      "line",
+		"colour":    "#736AFF",
+		"text":      "Avg. ",
+		"width":     2,
+		"halo-size": 2,
+		"dot-style": {
+			"type":"solid-dot", "colour":"#a44a80", "dot-size": 1},
+		"values" :   []
+	}
+	],
+	"bg_colour": "#ffffff",
+	"x_axis": {
+		"colour": "#aaaaaa",
+		"grid-colour": "#eeeeee",
+		"stroke": 1,
+		"tick-height": 4,
+		"labels": {
+			"visible": false
+		}
+	},
+	"y_axis": {
+		"colour": "#aaaaaa",
+		"grid-colour": "#eeeeee",
+		"stroke": 1,
+		"tick-length": 5,
+		"min": 0,
+		"max": 100,
+		"steps": 25
+	},
+	"tooltip": {
+		"stroke": 1,
+		"colour": "#000000",
+		"background": "#fffbca"
+	}
+}

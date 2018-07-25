@@ -1,0 +1,749 @@
+
+
+html, body {
+    font-size:12px;
+    height: 100%;
+    overflow: hidden;
+}
+ul li{list-style-type: none;}
+body {
+
+    font-family: "Roboto", sans-serif;
+    width: 100%;
+}
+.home {
+    background: #170c36 url(../images/bg.png) no-repeat top center;
+}
+.bglogin {
+    background: #170c36 url(../images/bg_reg.png) no-repeat top center;
+}
+.page_content{
+    width: 100%;
+    float: left;
+}
+#container{
+    width: 1280px;
+    height: 720px;
+    margin: 0 auto;
+    position: relative;
+}
+.header{
+    width: 100%;
+    height: 78px;
+    float: left;
+    position: absolute;
+}
+.logo_content{
+   width: 1016px;
+    margin: 0 auto;
+    position: relative;
+}
+.logo_images{
+    width: 75px;
+    height: 74px;
+    float: left;
+}
+.icon-face{
+    background: url('../images/icon_social.png') no-repeat scroll;
+    background-position: 0px 0px;
+    width: 66px;
+    height: 63px;
+}
+.icon-google{
+    background: url('../images/icon_social.png') no-repeat scroll  ;
+    background-position: -70px 0px;
+    width: 70px;
+    height: 63px;
+}
+.icon-vim{
+    background: url('../images/icon-vim-top.png') no-repeat scroll 4px 8px;
+    width: 24px;
+    height: 30px;
+    float: left;
+}
+.login_scocial{
+    float: left;
+    width: 270px;
+}
+.login_scocial ul{display: block;width: 100%;float: left;margin: 0px;}
+.login_scocial ul li{display: inline;}
+.login_scocial ul li span{line-height: 78px;color: #fff;text-transform: uppercase;float: left;}
+.login_scocial ul li a{float: left;}
+.login_quick{float: left;width: 670px;}
+.login_input{
+    margin:20px 0 0 0px;
+    padding:0;
+    line-height:35px;
+    height:35px;
+    background:#111111;
+    border: 1px solid #3b4962;
+    border-radius: 5px;
+    float:left;
+    color: #fff;
+    padding-left: 10px;
+    margin-left: 5px;
+    width: 150px;
+}
+.btn_login
+{
+    margin:20px 0 0 0px;
+    padding:0;
+    line-height:35px;
+    height:35px;
+    background:#e29d06;
+    border: 1px solid #e29d06;
+    border-radius: 5px;
+    float:left;
+    color: #fff;
+    text-transform: uppercase;
+    margin-left: 5px;
+    width: 113px;
+    font-size:16px;text-align: center;
+}
+.btn_reg{
+    margin:20px 0 0 0px;
+    padding:0;
+    line-height:35px;
+    height:35px;
+    background:#669801;
+    border: 1px solid #669801;
+    border-radius: 5px;
+    float:left;
+    color: #fff;
+    text-transform: uppercase;
+    margin-left: 5px;
+    width: 113px;
+    font-size:16px;text-align: center;
+}
+.btn_reg a {
+    text-decoration: none;
+}
+.btn_fogot{
+    margin:20px 0 0 0px;
+    padding:0;
+    line-height:35px;
+    height:35px;
+    border-radius: 5px;
+    float:left;
+    color: #fff;
+
+    width: 113px;
+    font-size:12px;text-align: center;
+}
+.header_top{
+    float: left;
+    width: 100%;
+    line-height: 36px;
+}
+.header_top ul{
+    float: left;
+    width: 100%;
+    margin: 0px;
+}
+.header_top ul li{
+    display: inline;
+    float: left;
+    margin-left: 10px;
+}
+.header_top ul li:before{
+    display: inline;
+    float: left;
+}
+.game{
+    color: #beab10;
+    font-size: 13px;
+    text-align: left;
+    float: left;
+}
+.user_info{
+    color: #ff0054;
+    font-size: 13px;
+    text-align: left;
+    float: left;
+    padding-left: 5px;
+}
+.win{ color: #fff;
+    font-size: 13px;
+    text-align: left;
+    float: left;
+    padding-left: 5px;
+}
+.money{
+    color: #ff00f6;
+    font-size: 13px;
+    text-align: left;
+    float: left;
+    padding-left: 5px;
+}
+.content{
+    width: 100%;
+    float: left;
+    margin-top: 40px;
+}
+.content_left{
+    width: 21%;
+    float: left;
+}
+.content_right{
+    width: 70%;
+    float: left;
+}
+.item_games{
+    width: 100%;
+    float: left;
+}
+.item_game {
+    float: left;
+    z-index: 31;
+    width: 212px;
+    font-size: 24px;
+}
+.item_game a {
+    color: #fff;
+    background-repeat: no-repeat;
+    background-position: top center;
+    height: 212px;
+    display: block;
+}
+.item_game a img {
+    width: 212px;
+    height: 212px;
+
+    display: block;
+}
+.gane_hu{
+    background: url("../images/bg_hu.png") no-repeat scroll 0px 0px;
+    height: 400px;
+    width: 217px;
+    float: left;
+    margin-top: -20px;
+}
+.content_hu{
+    float: left;
+    margin: 60px;
+
+    margin-left: 0px;
+    width: 195px;
+}
+.tabs-menu {
+    height: 30px;
+    float: left;
+    clear: both;
+    margin: 0px;
+    padding-left: 30px;
+}
+
+.tabs-menu li {
+    height: 30px;
+    line-height: 30px;
+    float: left;
+
+}
+
+.tabs-menu li.current {
+    position: relative;
+   color: #e29d06;
+    z-index: 5;
+}
+
+.tabs-menu li a {
+    padding: 10px;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.tabs-menu .current a {
+    color: #e29d06;
+}
+
+.tab {
+    float: left;
+    margin-bottom: 20px;
+    width: auto;
+}
+
+.tab-content {
+    width: 174px;
+    padding-left: 18px;
+    display: none;
+    padding-top: 5px;
+}
+
+#tab-1 {
+    display: block;
+}
+.list_game{
+    float: left;
+    width: 100%;
+}
+.list_game ul {
+    float: left;
+    display: block;
+    width: 100%;
+}
+
+.list_game ul li {
+    float: left;
+    display: block;
+    background: url("../images/icon_hu.png") no-repeat scroll 0px 0px;
+    margin-left: -21px;
+}
+.game_name{
+    float: left;
+    color: #fff;
+    text-align: left;
+    width: 100%;
+    padding-left: 55px;
+    line-height: 27px;
+}
+.money_hu{
+    float: left;
+    width: 100%;
+    padding-left: 50px;
+    line-height: 20px;
+}
+.icon-vim-hu {
+    background: url('../images/icon-vim-top.png') no-repeat scroll 3px 0px;
+    width: 24px;
+    height: 30px;
+    float: left;
+}
+.support{
+    float: right;
+    width: 7%;
+    margin-top: 25px;
+}
+.support ul{
+    float: left;
+    width: 73px;
+    display: block;
+    padding: 0px;
+}
+.support ul li{
+    float: left;
+    width: 73px;
+    display: block;
+}
+.daily{
+    background: url("../images/support.png") no-repeat;
+    background-position: 0px 0px;
+    float: left;
+    width: 73px;
+    height: 73px;
+}
+.vipcode{
+    background: url("../images/support.png") no-repeat;
+    background-position: 0px -73px;
+    float: left;
+    width: 73px;
+    height: 73px;
+}
+
+.hotro{
+    background: url("../images/support.png") no-repeat;
+    background-position: 0px -146px;
+    float: left;
+    width: 73px;
+    height: 73px;
+}
+.quydinh{
+    background: url("../images/support.png") no-repeat;
+    background-position: 0px -219px;
+    float: left;
+    width: 73px;
+    height: 90px;
+}
+.download{
+    float: left;
+    width: 100%;
+}
+.download ul{
+    float: left;
+    width: 100%;
+    margin-top: 25px;
+}
+.download ul li{
+    float: left;
+    display: inline;
+    margin-left: 205px;
+}
+.ios{background: url("../images/download.png") no-repeat;
+    background-position: 0px -0px;
+    float: left;
+    width: 67px;
+    height: 66px;}
+.android{
+    background: url("../images/download.png") no-repeat;
+    background-position: 0px -74px;
+    float: left;
+    width: 67px;
+    height: 68px;
+}
+
+.windowsphone{
+    background: url("../images/download.png") no-repeat;
+    background-position: 0px -148px;
+    float: left;
+    width: 67px;
+    height: 68px;
+}
+.face{
+    background: url("../images/download.png") no-repeat;
+    background-position: 0px -223px;
+    float: left;
+    width: 67px;
+    height: 68px;
+}
+.reg_login{
+    width: 47%;
+    float: right;
+}
+.login_content{
+    float: left;
+    width: 350px;
+}
+.content_login{
+    width: 100%;
+    float: left;
+    height: 468px;
+}
+.title_login{
+    color: #fff;
+    text-align: center;
+    font-size: 37px;
+    text-transform: uppercase;
+}
+.login_item {
+    float: left;
+    width: 100%;
+    margin-top: 15px;
+}
+#regError {
+    margin-left: 8px;
+    color: red;
+    border-top-width: 0;
+    display: block;
+    width: 500px;
+    margin-top: 3px;
+
+}
+.input_login{
+
+    padding: 0;
+    line-height: 35px;
+    height: 35px;
+    background: #fff;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    float: left;
+    color: #000;
+    padding-left: 10px;
+    margin-left: 5px;
+    width: 350px
+}
+.input_captcha{
+
+    padding: 0;
+    line-height: 35px;
+    height: 35px;
+    background: #fff;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    float: left;
+    color: #000;
+    padding-left: 10px;
+    margin-left: 5px;
+    width: 175px
+}
+.text_agree{
+    color: #fff;
+    float: left;
+    line-height: 40px;
+}
+.text_polici{
+    color: #f2a90c;
+    float: left;
+    padding-left: 5px;
+    line-height: 40px;
+}
+.text_polici a{
+    color: #f2a90c;
+    float: left;
+    padding-left: 5px;
+    line-height: 40px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.checkboxFive {
+    width: 22px;
+    margin: 0px 10px;
+    position: relative;
+}
+.checkboxFive label {
+    cursor: pointer;
+    position: absolute;
+    width: 19px;
+    height: 19px;
+    top: 0;
+    left: 0;
+    background: #f4f4f8;
+    border: 2px solid #c1c4d6;
+}
+
+.checkboxFive label:after {
+
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 4px;
+    background: transparent;
+    top: 5px;
+    left: 4px;
+    border: 3px solid #8e5cd4;
+    border-top: none;
+    border-right: none;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+.checkboxFive label:hover::after {
+    opacity: 1;
+}
+/**
+ * Create the checkbox state for the tick
+ */
+.checkboxFive input[type=checkbox]:checked + label:after {
+    opacity: 0;
+}
+.checkboxFive span {
+    width: 150px;
+    float: left;
+    margin-top: -27px;
+    padding-left: 30px;
+}
+.checkboxFive span span {
+    width: 150px;
+    float: left;
+    margin-top: -40px;
+    padding-left: 60px;
+}
+.btn_register{
+
+    padding:0;
+    line-height:35px;
+    height:35px;
+    background:#e29d06;
+    border: 1px solid #e29d06;
+    border-radius: 5px;
+    float:left;
+    color: #fff;
+    text-transform: uppercase;
+    margin-left: 5px;
+    width: 350px;
+    font-size:27px;text-align: center;
+    margin-top: -15px;
+    cursor: pointer;
+}
+.btn_dangnhap{
+
+    padding:0;
+    line-height:35px;
+    height:35px;
+    background:#e29d06;
+    border: 1px solid #e29d06;
+    border-radius: 5px;
+    float:left;
+    color: #fff;
+    text-transform: uppercase;
+    margin-left: 5px;
+    width: 350px;
+    font-size:27px;text-align: center;
+
+}
+.title_login_for{
+    color: #fff;
+    text-align: center;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+.title_login_for a{
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: none;
+    margin-top: 0px;
+}
+.login_scocial_reg{
+    float: left;
+    width: 350px;
+    margin-top:-10px;
+}
+.login_scocial_reg ul{display: block;width: 100%;margin: 0 auto;padding-left: 106px}
+.login_scocial_reg ul li{display: inline;}
+.login_scocial_reg ul li span{line-height: 78px;color: #fff;text-transform: uppercase;float: left;}
+.login_scocial_reg ul li a{float: left;}
+.text_login{
+    float: left;
+    width: 350px;
+    text-align: center;
+    padding-left: 90px;
+    margin-top: -15px;
+}
+.download_login{
+    float: left;
+    width: 100%;
+}
+.download_login ul{
+    float: left;
+    width: 100%;
+    margin-top: 20px;
+}
+.download_login ul li{
+    float: left;
+    display: inline;
+    margin-left: 190px;
+}
+.avarta{
+    background: url('../images/icon_login.png');
+    background-position: 0px 0px;
+    width: 59px;
+    height: 59px;
+    float: left;
+}
+.logo_avarta{
+    width: 200px;
+    float: left;
+}
+.avatar_right{
+    float: left;
+    width: 200px;
+}
+.avarta_name{
+    float: left;
+    text-align: left;
+    color: #fff;
+    line-height: 35px;
+    padding-left: 5px;
+    font-size: 14px;
+
+}
+.level
+{
+    background: url('../images/icon_login.png') no-repeat scroll 0px 0px;
+    background-position: 0px -62px;
+    width: 128px;
+    height: 14px;
+    float: left;
+}
+.balance_money{
+    float: left;
+    width: 510px;
+}
+.input_money
+{
+
+    margin:20px 0 0 0px;
+    padding:0;
+    line-height:35px;
+    height:35px;
+    background:#111111;
+    border: 1px solid #3b4962;
+    border-radius: 20px;
+    float:left;
+    color: #fff;
+    padding-left: 44px;
+    margin-left: 5px;
+    width: 220px;
+    font-size: 21px;
+}
+.vin{
+    background: url('../images/icon_login.png') no-repeat scroll 0px 0px;
+    background-position: 0px -85px;
+    width: 59px;
+    height: 47px;
+    float: left;
+    margin-top: -40px;
+}
+.xu{
+    background: url('../images/icon_login.png') no-repeat scroll 0px 0px;
+    background-position: 0px -136px;
+    width: 59px;
+    height: 51px;
+    float: left;
+    margin-top: -46px;
+}
+.addcoin{
+    background: url('../images/icon_login.png') no-repeat scroll 0px 0px;
+    background-position: 0px -193px;
+    width: 48px;
+    height: 50px;
+    float: left;
+    margin-top: -44px;
+    margin-left: 118px;
+}
+.w-vin{
+    float: left;
+    width: 225px;
+    margin-left: 15px;
+}
+.info{
+    float: left;
+    width: 270px;
+}
+.info ul{
+    float: left;
+    width: 100%;
+    list-style-type: none;
+    padding: 0px;
+}
+.info ul li{
+    float: left;
+    list-style-type: none;
+    padding: 0px;
+    margin-left: 12px;
+}
+.sercuriy{
+    background: url('../images/icon_login.png') no-repeat scroll 0px 0px;
+    background-position: 0px -250px;
+    width: 55px;
+    height: 55px;
+    float: left;
+
+}
+.mail{
+    background: url('../images/icon_login.png') no-repeat scroll 0px 0px;
+    background-position: 0px -314px;
+    width: 55px;
+    height: 55px;
+    float: left;
+
+}
+.shop{
+    background: url('../images/icon_login.png') no-repeat scroll 0px 0px;
+    background-position: 0px -376px;
+    width: 55px;
+    height: 55px;
+    float: left;
+
+}
+.menu{
+    background: url('../images/icon_login.png') no-repeat scroll 0px 0px;
+    background-position: 0px -439px;
+    width: 55px;
+    height: 58px;
+    float: left;
+
+}
+.reload{
+    background: url('../images/reload.png') no-repeat scroll 0px 8px;
+    width: 50px;
+    height: 50px;
+    float: left
+}

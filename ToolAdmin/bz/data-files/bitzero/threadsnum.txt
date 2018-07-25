@@ -1,0 +1,39 @@
+{
+	"title":{
+    "text":  "Threads Count",
+    "style": "{font-size: 16px; color:#0000ff; font-family: Verdana; text-align: center;}"
+  },
+  "y_legend":{
+    "text":   "Time of day",
+    "style": "{color: #736AFF;}"
+  },
+
+	"elements":[
+		{
+		"type": "area",
+		"text":      "Threads count (num) ",
+		"fill-alpha": 0.8,
+		"values": [0],
+		"width": 2,
+		"dot-size": 3,
+		"halo-size": 2,
+		"colour": "#ff9900",
+		"fill": "#dbecf6"
+	  }
+	],
+
+  "x_axis": {
+		"colour": "#aaaaaa",
+		"grid-colour": "#eeeeee",
+		"stroke": 1,
+		"tick-height": 4,
+		"labels": {
+			"visible": false
+		}
+	},
+
+  "y_axis":{
+    "max":   3
+  }
+
+}

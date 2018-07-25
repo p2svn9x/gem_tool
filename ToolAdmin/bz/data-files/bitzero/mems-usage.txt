@@ -1,0 +1,55 @@
+{
+	 "title":{
+	"text":"Memory Usage ",
+	"style":"{color: #736AFF; font-size: 16;}"
+	  },
+  
+"elements": [
+	{
+		"type": "area",
+		"text":      "Allocated ",
+		"fill-alpha": 0.8,
+		"values": [0],
+		"width": 2,
+		"dot-size": 3,
+		"halo-size": 2,
+		"colour": "#ff9900",
+		"fill": "#dbecf6"
+	},
+	{
+		"type": "area",
+		"text":      "Used   (MB)",
+		"fill-alpha": 0.6,
+		"values": [0],
+		"width": 2,
+		"dot-size": 3,
+		"halo-size": 2,
+		"colour": "#CC3399",
+		"fill": "#343399"
+	}
+	],
+	"bg_colour": "#ffffff",
+	"x_axis": {
+		"colour": "#aaaaaa",
+		"grid-colour": "#eeeeee",
+		"stroke": 1,
+		"tick-height": 4,
+		"labels": {
+			"visible": false
+		}
+	},
+	"y_axis": {
+		"colour": "#aaaaaa",
+		"grid-colour": "#eeeeee",
+		"stroke": 1,
+		"tick-length": 5,
+		"min": 0,
+		"max": 50,
+		"steps": 25
+	},
+	"tooltip": {
+		"stroke": 1,
+		"colour": "#000000",
+		"background": "#fffbca"
+	}
+}

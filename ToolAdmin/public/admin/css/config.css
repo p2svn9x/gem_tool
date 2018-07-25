@@ -1,0 +1,392 @@
+label#version_ios_label {
+     margin-left: 70px;
+     width: 110px;
+     margin-bottom: 7px;
+ }
+
+input#version_ios {
+    width: 150px;
+}
+
+label#update_ios_label {
+    margin-left: 53px;
+    width: 110px;
+    margin-bottom: 7px;
+}
+
+select#update_ios {
+    width: 150px;
+    position: absolute;
+
+}
+
+label#url_update_ios_label {
+    margin-left: 202px;
+    width: 125px;
+    margin-bottom: 7px;
+}
+
+input#url_update_ios {
+    width: 300px;
+}
+input#editios {
+    position: absolute;
+    right: 310px;
+}
+input#submitios {
+    position: absolute;
+    right: 200px;
+}
+
+label#version_android_label {
+    margin-left: 70px;
+    width: 110px;
+    margin-bottom: 7px;
+}
+
+input#version_android {
+    width: 150px;
+}
+
+label#update_android_label {
+    margin-left: 53px;
+    width: 110px;
+    margin-bottom: 7px;
+}
+
+select#update_android {
+    width: 150px;
+    position: absolute;
+}
+
+label#url_update_android_label {
+    margin-left: 202px;
+    width: 125px;
+    margin-bottom: 7px;
+}
+
+input#url_update_android {
+    width: 300px;
+}
+input#editandroid {
+    position: absolute;
+    right: 310px;
+}
+input#submitandroid {
+    position: absolute;
+    right: 200px;
+}
+label#version_wp_label {
+    margin-left: 70px;
+    width: 110px;
+    margin-bottom: 7px;
+}
+
+input#version_wp {
+    width: 150px;
+}
+
+label#update_wp_label {
+    margin-left: 53px;
+    width: 110px;
+    margin-bottom: 7px;
+}
+
+select#update_wp {
+    width: 150px;
+    position: absolute;
+}
+
+label#url_update_wp_label {
+    margin-left: 202px;
+    width: 125px;
+    margin-bottom: 7px;
+}
+
+input#url_update_wp {
+    width: 300px;
+}
+input#editwp {
+    position: absolute;
+    right: 310px;
+}
+input#submitwp {
+    position: absolute;
+    right: 200px;
+}
+
+label#version_web_label {
+    margin-left: 70px;
+    width: 110px;
+    margin-bottom: 7px;
+}
+
+input#version_web {
+    width: 150px;
+}
+
+label#update_web_label {
+    margin-left: 53px;
+    width: 110px;
+    margin-bottom: 7px;
+}
+
+select#update_web {
+    width: 150px;
+    position: absolute;
+}
+
+label#url_update_web_label {
+    margin-left: 202px;
+    width: 125px;
+    margin-bottom: 7px;
+}
+
+input#url_update_web {
+    width: 300px;
+}
+input#editweb {
+    position: absolute;
+    right: 310px;
+}
+input#submitweb {
+    position: absolute;
+    right: 200px;
+}
+
+label#server_minigame_label {
+    margin-left: 70px;
+    width: 110px;
+    margin-bottom: 7px;
+}
+
+input#server_minigame {
+    width: 150px;
+}
+
+label#port_minigame_label {
+    margin-left: 53px;
+    width: 110px;
+    margin-bottom: 7px;
+}
+
+input#port_minigame {
+    width: 150px;
+}
+
+label#status_minigame_label {
+    margin-left: 53px;
+    width: 125px;
+    margin-bottom: 7px;
+}
+
+select#status_minigame {
+    width: 150px;
+    position: absolute;
+}
+input#editminigame {
+    position: absolute;
+    right: 310px;
+}
+input#submitminigame {
+    position: absolute;
+    right: 200px;
+}
+label#server_sam_label {
+    margin-left: 70px;
+    width: 110px;
+    margin-bottom: 7px;
+}
+
+input#server_sam {
+    width: 150px;
+}
+
+label#port_sam_label {
+    margin-left: 53px;
+    width: 110px;
+    margin-bottom: 7px;
+}
+
+input#port_sam {
+    width: 150px;
+}
+
+label#status_sam_label {
+    margin-left: 53px;
+    width: 125px;
+    margin-bottom: 7px;
+}
+
+select#status_sam {
+    width: 150px;
+    position: absolute;
+}
+input#editsam {
+    position: absolute;
+    right: 310px;
+}
+input#submitsam {
+    position: absolute;
+    right: 200px;
+}
+label#server_bacay_label {
+    margin-left: 70px;
+    width: 110px;
+    margin-bottom: 7px;
+}
+
+input#server_bacay {
+    width: 150px;
+}
+
+label#port_bacay_label {
+    margin-left: 53px;
+    width: 110px;
+    margin-bottom: 7px;
+}
+
+input#port_bacay {
+    width: 150px;
+}
+
+label#status_bacay_label {
+    margin-left: 38px;
+    width: 125px;
+    margin-bottom: 7px;
+}
+
+select#status_bacay {
+    width: 150px;
+    position: absolute;
+}
+input#editbacay {
+    position: absolute;
+    right: 310px;
+}
+input#submitbacay {
+    position: absolute;
+    right: 200px;
+}
+label#server_binh_label {
+    margin-left: 70px;
+    width: 110px;
+    margin-bottom: 7px;
+}
+
+input#server_binh{
+    width: 150px;
+}
+
+label#port_binh_label {
+    margin-left: 53px;
+    width: 110px;
+    margin-bottom: 7px;
+}
+
+input#port_binh{
+    width: 150px;
+}
+
+label#status_binh_label {
+    margin-left: 53px;
+    width: 125px;
+    margin-bottom: 7px;
+}
+
+select#status_binh {
+    width: 150px;
+    position: absolute;
+}
+input#editbinh {
+    position: absolute;
+    right: 310px;
+}
+input#submitbinh{
+    position: absolute;
+    right: 200px;
+}
+label#server_tlmn_label {
+    margin-left: 70px;
+    width: 110px;
+    margin-bottom: 7px;
+}
+
+input#server_tlmn{
+    width: 150px;
+}
+
+label#port_tlmn_lebel {
+    margin-left: 53px;
+    width: 110px;
+    margin-bottom: 7px;
+}
+
+input#port_tlmn{
+    width: 150px;
+}
+
+label#status_tlmn_label {
+    margin-left: 53px;
+    width: 125px;
+    margin-bottom: 7px;
+}
+
+select#status_tlmn {
+    width: 150px;
+    position: absolute;
+}
+input#edittlmn{
+    position: absolute;
+    right: 310px;
+}
+input#submittlmn{
+    position: absolute;
+    right: 200px;
+}
+label#phone_label {
+    margin-left: 70px;
+    width: 110px;
+    margin-bottom: 7px;
+}
+
+input#phone{
+    width: 150px;
+}
+
+label#facebook_label{
+    margin-left: 53px;
+    width: 110px;
+    margin-bottom: 7px;
+}
+
+input#facebook{
+    width: 485px;
+}
+
+input#editphone{
+    position: absolute;
+    right: 310px;
+}
+input#submitphone{
+    position: absolute;
+    right: 200px;
+}
+label#urlhelp_label {
+    margin-left: 53px;
+    width: 125px;
+    margin-bottom: 7px;
+}
+
+textarea#urlhelp {
+    width: 800px;
+    height: 100px;
+}
+input#editurl{
+    position: absolute;
+    right: 310px;
+}
+input#submiturl{
+    position: absolute;
+    right: 200px;
+}
