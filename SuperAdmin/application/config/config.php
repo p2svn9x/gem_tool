@@ -23,13 +23,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://tsam.gem.club/';
+$config['base_url'] = 'http://localhost/gem_tool/SuperAdmin';
 //$config['api_url'] = 'http://api.vinplay.com:8082/api_backend';
 //$config['api_url2'] = 'http://api2.vinplay.com:8082/api_backend';
-$config['api_url'] = "http://35.185.144.170:8082/api_backend";
-$config['api_url2'] = "http://35.185.144.170:8082/api_backend";
+$config['api_url'] = "http://130.211.249.69:8082/api_backend";
+$config['api_url2'] = "http://130.211.249.69:8082/api_backend";
 //$config['api_url2'] = "http://104.155.195.145:8082/api_backend";
-$config['api'] = 'http://35.185.144.170/api';
+$config['api'] = 'http://130.211.249.69:8081/api';
 //$config['api_url'] = 'http://104.199.205.65:8082/api_backend';
 /*
 |--------------------------------------------------------------------------

@@ -6,12 +6,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Base Site URL
 |--------------------------------------------------------------------------
 */
-$config['base_url'] = 'http://tam.gem.club/';
-$config['api_backend'] = "http://35.185.144.170:8082/api_backend";
-$config['api_url'] = "http://35.185.144.170/api";
+$config['base_url'] = 'http://localhost/gem_tool/ToolAdmin';
+$config['api_backend'] = "http://130.211.249.69:8082/api_backend";
+$config['api_url'] = "http://130.211.249.69:8081/api";
 //$config['api_backend2'] = "http://35.185.144.170:8082/api_backend";
 //$config['api_backend2'] = "http://35.185.144.170:8082/api_backend";
-$config['api_backend2'] = "http://35.185.144.170:8082/api_backend";
+$config['api_backend2'] = "http://130.211.249.69:8082/api_backend";
 //$config['api_backend2'] = "http://104.155.195.145:8082/api_backend";
 /*
 |--------------------------------------------------------------------------
@@ -500,3 +500,5 @@ $config['rewrite_short_tags'] = FALSE;
 $config['proxy_ips'] = '';
 $config['index_page'] = '';
 $config['uri_protocol'] = 'AUTO';
+
+;
