@@ -13,7 +13,7 @@
 
 <ul class="sidebar-menu">
 
-<?php if ($admin_info->nickname == $dlmb || $admin_info->nickname == $dlmn) : ?>
+<?php if ($admin_info->nickname == $dlmb || $admin_info->nickname == $dlmn || $admin_info->nickname == $dlmt ) : ?>
     <li>
         <a href="<?php echo base_url("agency/listdailymien") ?>">
             <i class="fa fa-dashboard"></i><span>Danh sách đại lý trực thuộc </span>
@@ -45,7 +45,7 @@
     </li>
 <?php endif; ?>
 <?php if ($admin_info->status == "D"): ?>
-    <?php if ($admin_info->nickname == $dlmb || $admin_info->nickname == $dlmn) : ?>
+    <?php if ($admin_info->nickname == $dlmb || $admin_info->nickname == $dlmn || $admin_info->nickname == $dlmt) : ?>
     <?php else: ?>
         <li>
             <a href="<?php echo base_url('agency/listnoactive') ?>">
@@ -135,13 +135,19 @@ elseif ($admin_info->nickname == $dlmn): ?>
             <i class="fa fa-dashboard"></i> <span>Top doanh số bán miền nam</span>
         </a>
     </li>
+    <?php elseif ($admin_info->nickname == $dlmt): ?>
+    <li>
+        <a href="<?php echo base_url('agency/topdoanhsobanmien') ?>">
+            <i class="fa fa-dashboard"></i> <span>Top doanh số bán miền trung</span>
+        </a>
+    </li>
 
 
 <?php
 elseif ($admin_info->status == "A"): ?>
     <li>
         <a href="<?php echo base_url('agency/topdsban2mien') ?>">
-            <i class="fa fa-dashboard"></i> <span>Top doanh số bán 2 miền</span>
+            <i class="fa fa-dashboard"></i> <span>Top doanh số bán 3 miền</span>
         </a>
     </li>
 
@@ -149,7 +155,7 @@ elseif ($admin_info->status == "A"): ?>
 elseif ($admin_info->nickname == $daily): ?>
     <li>
         <a href="<?php echo base_url('agency/topdsban2mien') ?>">
-            <i class="fa fa-dashboard"></i> <span>Top doanh số bán 2 miền</span>
+            <i class="fa fa-dashboard"></i> <span>Top doanh số bán 3 miền</span>
         </a>
     </li>
 <?php endif; ?>
@@ -181,7 +187,7 @@ elseif ($admin_info->nickname == $daily): ?>
                     
                 </ul>
             </li>-->
-<?php if ($admin_info->nickname == $dlmb || $admin_info->nickname == $dlmn) : ?>
+<?php if ($admin_info->nickname == $dlmb || $admin_info->nickname == $dlmn || $admin_info->nickname == $dlmt) : ?>
 <?php else: ?>
     <li>
         <a href="<?php echo base_url('freeze') ?>">

@@ -649,6 +649,7 @@ function UpdateProcess()
                 echo json_encode("2");
             }else if($datainfo->errorCode == 1001){
                 $this->curl->simple_get($this->config->item('api_url') . '?c=103&nn=' .  $this->input->post('nickname') . '&st=0'.'&pr='.$this->input->post('parent'));
+
                 $this->session->set_flashdata('message', ' <div class="form-group has-error"><label class="control-label" for="inputSuccess"><i class="fa fa-check"></i> Nick name không tồn tại </label></div>');
                 echo json_encode("3");
                 die();

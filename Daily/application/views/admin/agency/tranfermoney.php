@@ -234,35 +234,33 @@
 
                             $fee = Math.round(parseInt($("#vinchuyen").val()) * (1 - respone.ratio_transfer_dl_1).toFixed(2));
                             $totalchuyen = parseInt($("#vinchuyen").val()) + parseInt($fee);
-                            $("#lblphichuyen").html("Số tiền đại lý bị trừ:  ");
+                           // $("#lblphichuyen").html("Số tiền đại lý bị trừ:  ");
 
-                            $("#phichuyen").html(format($totalchuyen));
-                            $("#hdntranfer").val($totalchuyen);
+//                            $("#hdntranfer").val($('#vindu').val());
                             $("#nicknamehd").html("Tài khoản thường");
 
                         }
                         else if (res == 1) {
                             $fee = Math.round(parseInt($("#vinchuyen").val()) * (1 - respone.r_tf_11).toFixed(2));
                             $totalchuyen = parseInt($("#vinchuyen").val()) + parseInt($fee);
-                            $("#lblphichuyen").html("Số tiền đại lý bị trừ:  ");
-                            $("#phichuyen").html(format($totalchuyen));
-                            $("#hdntranfer").val($totalchuyen);
+                           // $("#lblphichuyen").html("Số tiền đại lý bị trừ:  ");
+//                            $("#hdntranfer").val($('#vindu').val());
                             $("#nicknamehd").html("Tài khoản đại lý");
                         }
                         else if (res == 2) {
                             $fee = Math.round(parseInt($("#vinchuyen").val()) * (1 - respone.r_tf_12).toFixed(2));
                             $totalchuyen = parseInt($("#vinchuyen").val()) + parseInt($fee);
-                            $("#lblphichuyen").html("Số tiền đại lý bị trừ:  ");
-                            $("#phichuyen").html(format($totalchuyen));
-                            $("#hdntranfer").val($totalchuyen);
+                           // $("#lblphichuyen").html("Số tiền đại lý bị trừ:  ");
+                           // $("#phichuyen").html(format($totalchuyen));
+                            $("#hdntranfer").val($('#vindu').val());
                             $("#nicknamehd").html("Tài khoản đại lý");
                         }
                         else if (res == 100) {
                             $fee = Math.round(parseInt($("#vinchuyen").val()) * (1 - respone.ratio_transfer_dl_1).toFixed(2));
                             $totalchuyen = parseInt($("#vinchuyen").val()) + parseInt($fee);
-                            $("#lblphichuyen").html("Số tiền đại lý bị trừ:  ");
-                            $("#phichuyen").html(format($totalchuyen));
-                            $("#hdntranfer").val($totalchuyen);
+                           // $("#lblphichuyen").html("Số tiền đại lý bị trừ:  ");
+                          //  $("#phichuyen").html(format($totalchuyen));
+                            $("#hdntranfer").val($('#vindu').val());
                             $("#nicknamehd").html("Tài khoản thường");
                         }
                     },error: function(){

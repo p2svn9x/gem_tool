@@ -2,7 +2,7 @@
 
     <section class="content-header">
         <h1>
-            Top doanh số bán 2 miền
+            Top doanh số bán 3 miền
         </h1>
     </section>
 
@@ -48,7 +48,7 @@
 
                         <div style="width: 100%;float: left;color: #ff0000;" id="error"></div>
 
-                        <div class="col-xs-12 col-sm-6 col-md-6" id="table1">
+                        <div class="col-xs-12 col-sm-4 col-md-4" id="table1">
 
 
                             <h1 id="resultsearch"></h1>
@@ -57,7 +57,17 @@
                             <img id="img-spinner" src="<?php echo public_url('admin/images/gif-load.gif') ?>"
                                  alt="Loading"/>
                         </div>
-                        <div class="col-xs-12 col-sm-6 col-md-6" id="table2">
+                        <div class="col-xs-12 col-sm-4 col-md-4" id="table3">
+
+
+                            <h1 id="resultsearch3"></h1>
+                        </div>
+                        <div id="spinner3" class="spinner" style="">
+                            <img id="img-spinner" src="<?php echo public_url('admin/images/gif-load.gif') ?>"
+                                 alt="Loading"/>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-4 col-md-4" id="table2">
 
 
                             <h1 id="resultsearch1"></h1>
@@ -130,6 +140,7 @@ $(document).ready(function () {
 
     topDoanhSoAgent();
     topDoanhSoAgent1();
+    topDoanhSoAgent2();
 
 });
 $("#search_tran").click(function () {
@@ -141,6 +152,7 @@ $("#search_tran").click(function () {
 
     topDoanhSoAgent();
     topDoanhSoAgent1();
+    topDoanhSoAgent2()
 
 });
 
@@ -153,22 +165,7 @@ function listtopdoanhsoAgent(index, agentName, nickName, total, bonusFix, bonusM
     html += "<td>" + commaSeparateNumber(total) + "</td>";
     html += "<td>" + commaSeparateNumber(bonusTotal) + "</td>";
 
-    if ($("#hdnnickname").val() == nickName) {
-        html += "<td style='display:none'>" + commaSeparateNumber(bonusFix) + "</td>";
-        html += "<td style='display:none' >" + commaSeparateNumber(bonusMore) + "</td>";
-        html += "<td style='display:none'>" + commaSeparateNumber(bonusTotal) + "</td>";
-        html += "<td style='display:none'>" + commaSeparateNumber(bonusByVinCash) + "</td>";
-        html += "<td style='display:none'>" + commaSeparateNumber(bonusByVinplayCard) + "</td>";
-        html += "<td style='display:none'>" + percent + ' %' + "</td>";
-    }
-    else {
-        html += "<td style='display:none></td>";
-        html += "<td ></td>";
-        html += "<td style='display:none></td>";
-        html += "<td style='display:none'></td>";
-        html += "<td style='display:none'></td>";
-        html += "<td style='display:none'></td>";
-    }
+
 
     html += "</tr>";
     return html;
@@ -286,6 +283,64 @@ function topDoanhSoAgent1() {
         timeout: 30000
     });
 }
+
+function topDoanhSoAgent2() {
+
+    $.ajax({
+        type: "POST",
+        url: "<?php echo base_url('TranferAjax/topDoanhSoBanDlMien') ?>",
+        data: {
+            nickName: "<?php echo $dlmt ?>",
+            timestart: $("#startDate").val(),
+            timeend: $("#endDate").val(),
+            month: $("#fromDate").val()
+        },
+        cache: true,
+        dataType: 'json',
+        success: function (data) {
+            $("#spinner3").hide();
+            $("#error").html("");
+            if (data.transactions == "") {
+                $('#table3').html("");
+            } else {
+                var i = 1;
+                var result = "";
+                result += '<h3 class="text-center">Miền Trung</h3>'
+                result += '<table id="TblAgent" class="tablesorter table table-bordered table-hover">';
+                result += ' <thead>';
+                result += ' <tr>';
+                result += ' <th style="text-align: center">TOP</th>';
+                result += ' <th>Tên đại lý</th>';
+                result += ' <th>Nickname</th>';
+                result += ' <th>Doanh số</th>';
+                result += ' <th style="display:none">Thưởng cố định(Vin)</th>';
+                result += ' <th>Thưởng doanh số(Vin)</th>';
+                result += ' <th style="display:none">Tổng thưởng(Vin)</th>';
+                result += ' <th style="display:none">Thưởng vin</th>';
+                result += ' <th style="display:none">Thưởng vinCard</th>';
+                result += ' <th style="display:none">% Chuyển đổi</th>';
+                result += ' </tr>';
+                result += ' </thead>';
+                result += '<tbody>';
+                $.each(data.transactions, function (index, value) {
+                    result += listtopdoanhsoAgent(index, value.agentName, value.nickName, value.total, value.bonusFix, value.bonusMore, value.bonusTotal, value.bonusByVinCash, value.bonusByVinplayCard, value.percent);
+                });
+
+                result += '</tbody>';
+                result += '</table>';
+                $('#table3').html(result);
+
+
+            }
+        }, error: function () {
+            $("#spinner3").hide();
+            $("#error").html("Kết nối không ổn định.Vui lòng thử lại sau");
+        },
+        timeout: 30000
+    });
+}
+
+
 function commaSeparateNumber(val) {
     while (/(\d+)(\d{3})/.test(val.toString())) {
         val = val.toString().replace(/(\d+)(\d{3})/, '$1' + ',' + '$2');
