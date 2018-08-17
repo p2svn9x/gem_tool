@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Đại lý GemClub| Log in</title>
+    <title>Đại lý ManVip| Log in</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" href="<?php echo public_url("admin") ?>/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo public_url("admin") ?>/dist/css/AdminLTE.min.css">
@@ -17,7 +17,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
-        <a href="#"><b>Đại lý GemClub</b></a>
+        <a href="#"><b>Đại lý ManVip</b></a>
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">

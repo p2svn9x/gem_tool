@@ -4,7 +4,7 @@
     <!-- mini logo for sidebar mini 50x50 pixels -->
     <span class="logo-mini"><b>A</b>DL</span>
     <!-- logo for regular state and mobile devices -->
-    <span class="logo-lg"><b>Đại lý</b>&nbsp;&nbsp;&nbsp;GemClub</span>
+    <span class="logo-lg"><b>Đại lý</b>&nbsp;&nbsp;&nbsp;ManVip</span>
 </a>
 <!-- Header Navbar: style can be found in header.less -->
 <nav class="navbar navbar-static-top">
