@@ -100,6 +100,29 @@
 
                                 </select>
                             </td>
+
+                        </tr>
+
+                    </table>
+
+                </div>
+
+                <div class="formRow">
+
+                    <table>
+                        <tr>
+
+                            <td><label style="margin-left: 30px;margin-bottom:-2px;width: 100px">Hiển thị:</label>
+                            </td>
+                            <td class="item"><select id="display" name="display" style="margin-left: 27px;margin-bottom:-2px;width: 142px">
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                    <option value="500">500</option>
+                                    <option value="1000">1000</option>
+                                    <option value="5000">5000</option>
+
+                                </select>
+                            </td>
                             <td style="">
                                 <input type="button" id="search_tran" value="Tìm kiếm" class="button blueB"
                                        style="margin-left: 123px">
@@ -239,7 +262,8 @@
                 toDate: $("#toDate").val(),
                 fromDate: $("#fromDate").val(),
                 pages: 1,
-                status: $("#statusdb").val()
+                status: $("#statusdb").val(),
+                display : $("#display").val()
             },
 
             dataType: 'json',
@@ -280,7 +304,8 @@
                                         toDate: $("#toDate").val(),
                                         fromDate: $("#fromDate").val(),
                                         pages: page,
-                                        status: $("#statusdb").val()
+                                        status: $("#statusdb").val(),
+                                        display : $("#display").val(),
                                     },
                                     dataType: 'json',
                                     success: function (result) {

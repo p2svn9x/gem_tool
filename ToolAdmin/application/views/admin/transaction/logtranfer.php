@@ -78,6 +78,26 @@
                                 <option value="2" <?php if($this->input->post("typegd") == "2"){echo "selected";}  ?>>Nhận vin</option>
                             </select></td>
 
+
+
+                    </tr>
+
+                </table>
+
+            </div>
+
+            <div class="formRow">
+
+                <table>
+                    <tr>
+
+                        <td><label style="margin-left: 30px;margin-bottom:-2px;width: 100px">Loại giao dịch:</label></td>
+                        <td><select id="loaigd" name="loaigd"
+                                    style="margin-left: 20px;margin-bottom:-2px;width: 145px;">
+                                <option value="0" <?php if($this->input->post("loaigd") == "1"){echo "selected";}  ?>>Mới</option>
+                                <option value="1" <?php if($this->input->post("loaigd") == "2"){echo "selected";}  ?>>Cũ</option>
+                            </select></td>
+
                         <td style="">
                             <input type="button" id="search_tran" value="Tìm kiếm" class="button blueB"
                                    style="margin-left: 123px">
@@ -198,7 +218,8 @@
                 toDate: $("#toDate").val(),
                 fromDate: $("#fromDate").val(),
                 pages: 1,
-                type: $("#typegd").val()
+                type: $("#typegd").val(),
+                old :  $("#loaigd").val()
             },
 
             dataType: 'json',
@@ -232,7 +253,8 @@
                                         toDate: $("#toDate").val(),
                                         fromDate: $("#fromDate").val(),
                                         pages: page,
-                                        type: $("#typegd").val()
+                                        type: $("#typegd").val(),
+                                        old :  $("#loaigd").val()
                                     },
                                     dataType: 'json',
                                     success: function (result) {

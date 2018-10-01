@@ -84,7 +84,8 @@ Class Transaction extends MY_Controller
         $fromDate = $this->input->post("fromDate");
         $type = $this->input->post("type");
         $pages = $this->input->post("pages");
-        $datainfo = $this->curl->simple_get($this->config->item('api_backend').'?c=405&nn='.$nickname.'&ts=' . urlencode($toDate) . '&te=' . urlencode($fromDate) .'&p='.$pages.'&type='.$type);
+        $old = $this->input->post("old");
+        $datainfo = $this->curl->simple_get($this->config->item('api_backend').'?c=405&nn='.$nickname.'&ts=' . urlencode($toDate) . '&te=' . urlencode($fromDate) .'&p='.$pages.'&type='.$type."&old=".$old);
         if(isset($datainfo)) {
             echo $datainfo;
         }else{
@@ -488,7 +489,9 @@ Class Transaction extends MY_Controller
         $fromDate = $this->input->post("fromDate");
         $pages = $this->input->post("pages");
         $status = $this->input->post("status");
-        $datainfo = $this->curl->simple_get($this->config->item('api_backend2') . '?c=144&nn=' . $nickname . '&ts=' . urlencode($toDate) . '&te=' . urlencode($fromDate) . '&p=' . $pages.'&st='.$status);
+        $display = $this->input->post("display");
+
+        $datainfo = $this->curl->simple_get($this->config->item('api_backend2') . '?c=144&nn=' . $nickname . '&ts=' . urlencode($toDate) . '&te=' . urlencode($fromDate) . '&p=' . $pages.'&st='.$status.'&n='.$display);
         if (isset($datainfo)) {
             echo $datainfo;
         } else {
