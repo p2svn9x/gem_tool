@@ -632,7 +632,8 @@ Class Transaction extends MY_Controller
         $tno = urlencode($this->input->post("tno"));
         $type = $this->input->post("type");
         $code = $this->input->post("code");
-        $datainfo = $this->curl->simple_get($this->config->item('api_backend') . '?c=29&ts=' . urlencode($toDate) . '&te=' . urlencode($fromDate) . '&p=' . $pages . '&mid='.$mid.'&tid='.$tid.'&tno='.$tno.'&type='.$type.'&co='.$code.'&nn='.$nickname);
+        $old = $this->input->post("old");
+        $datainfo = $this->curl->simple_get($this->config->item('api_backend') . '?c=29&ts=' . urlencode($toDate) . '&te=' . urlencode($fromDate) . '&p=' . $pages . '&mid='.$mid.'&tid='.$tid.'&tno='.$tno.'&type='.$type.'&co='.$code.'&nn='.$nickname."&old=".$old);
         if (isset($datainfo)) {
             echo $datainfo;
         } else {
