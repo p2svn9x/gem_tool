@@ -49,6 +49,7 @@ Class MY_Controller extends CI_Controller
             $this->data['dlmn']  = "tongdailymn";
             $this->data['dlmb']  = "tongdailymb";
             $this->data['dlmt']  = "tongdailymt";
+            $this->data['dltb']  = "tongdltq";
 
             if ($admin_login) {
                 $admin_info = $this->useragent_model->get_info($admin_login);
