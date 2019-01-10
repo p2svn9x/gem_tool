@@ -490,8 +490,9 @@ Class Transaction extends MY_Controller
         $pages = $this->input->post("pages");
         $status = $this->input->post("status");
         $display = $this->input->post("display");
+        $act = $this->input->post("act");
 
-        $datainfo = $this->curl->simple_get($this->config->item('api_backend2') . '?c=144&nn=' . $nickname . '&ts=' . urlencode($toDate) . '&te=' . urlencode($fromDate) . '&p=' . $pages.'&st='.$status.'&n='.$display);
+        $datainfo = $this->curl->simple_get($this->config->item('api_backend2') . '?c=144&nn=' . $nickname . '&ts=' . urlencode($toDate) . '&te=' . urlencode($fromDate) . '&p=' . $pages.'&st='.$status.'&n='.$display.'&act=' . urlencode($act) );
         if (isset($datainfo)) {
             echo $datainfo;
         } else {

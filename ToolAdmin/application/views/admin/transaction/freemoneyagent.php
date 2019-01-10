@@ -123,6 +123,12 @@
 
                                 </select>
                             </td>
+                            <td><label style="margin-left: 30px;margin-bottom:-2px;width: 100px">Đại lý đóng băng:</label></td>
+                            <td><input type="text" style="margin-left: 20px;margin-bottom:-2px;width: 150px"
+                                       id="actorName" value="<?php echo $this->input->post('actorName') ?>" name="actorName">
+                            </td>
+
+
                             <td style="">
                                 <input type="button" id="search_tran" value="Tìm kiếm" class="button blueB"
                                        style="margin-left: 123px">
@@ -154,6 +160,7 @@
                     <td>STT</td>
                     <td>Session id</td>
                     <td>Nickname</td>
+                    <td>Đại lý đóng băng</td>
                     <td>Tiền đóng băng</td>
                     <td>Thời gian</td>
                     <?php if ($admin_info->Status == "W" || $admin_info->Status == "A" ||  $admin_info->Status == "C"): ?>
@@ -264,6 +271,7 @@
                 pages: 1,
                 status: $("#statusdb").val(),
                 display : $("#display").val()
+                act : $("#actorName").val()
             },
 
             dataType: 'json',
@@ -278,7 +286,7 @@
                     $("#resultsearch").html("");
                     stt = 1;
                     $.each(result, function (index, value) {
-                        result += resultSearchTransction(stt, value.sessionId, value.nickname, value.money, value.createTime,value.status);
+                        result += resultSearchTransction(stt, value.sessionId, value.nickname, value.money, value.createTime,value.status,value.roomId);
                         stt++;
                     });
                     $('#logaction').html(result);
@@ -306,6 +314,7 @@
                                         pages: page,
                                         status: $("#statusdb").val(),
                                         display : $("#display").val(),
+                                        act : $("#actorName").val()
                                     },
                                     dataType: 'json',
                                     success: function (result) {
@@ -313,7 +322,7 @@
                                         $("#spinner").hide();
                                         stt = 1;
                                         $.each(result, function (index, value) {
-                                            result += resultSearchTransction(stt, value.sessionId, value.nickname, value.money, value.createTime,value.status);
+                                            result += resultSearchTransction(stt, value.sessionId, value.nickname, value.money, value.createTime,value.status,value.roomId);
                                             stt++;
                                         });
                                         $('#logaction').html(result);
@@ -342,12 +351,13 @@
             }, timeout: 40000
         })
     });
-    function resultSearchTransction(stt, sesionid, nickname, money, date, status) {
+    function resultSearchTransction(stt, sesionid, nickname, money, date, status,roomId) {
         var rs = "";
         rs += "<tr>";
         rs += "<td>" + stt + "</td>";
         rs += "<td>" + sesionid + "</td>";
         rs += "<td>" + nickname + "</td>";
+        rs += "<td>" + roomId + "</td>";
         rs += "<td>" + commaSeparateNumber(money) + "</td>";
         rs += "<td>" + moment.unix(date / 1000).format("DD MMM YYYY hh:mm a") + "</td>";
         if ($("#statusopen").val() == "A" || $("#statusopen").val() == "W" || $("#statusopen").val() == "Q" ||  $("#statusopen").val() == "C") {

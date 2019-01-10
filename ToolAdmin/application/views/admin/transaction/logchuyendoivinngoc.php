@@ -135,6 +135,11 @@
                                     echo "selected";
                                 } ?> >Hàm Cá Mập
                                 </option>
+                                <option
+                                    value="ThanBien" <?php if ($this->input->post('select_merchant') == "ThanBien") {
+                                    echo "selected";
+                                } ?> >Thần Biển
+                                </option>
                             </select>
                         </td>
                     </tr>
