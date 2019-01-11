@@ -86,9 +86,6 @@
                             </td>
                             <td class="item"><select id="statusdb" name="statusdb"
                                                      style="margin-left: 27px;margin-bottom:-2px;width: 142px">
-                                    <option value="" <?php if ($this->input->post('statusdb') == "") {
-                                        echo "selected";
-                                    } ?>>Chọn</option>
                                     <option value="1" <?php if ($this->input->post('statusdb') == "1") {
                                         echo "selected";
                                     } ?>>Đang đóng băng
@@ -115,11 +112,11 @@
                             <td><label style="margin-left: 30px;margin-bottom:-2px;width: 100px">Hiển thị:</label>
                             </td>
                             <td class="item"><select id="display" name="display" style="margin-left: 27px;margin-bottom:-2px;width: 142px">
-                                    <option value="50">50</option>
                                     <option value="100">100</option>
                                     <option value="500">500</option>
                                     <option value="1000">1000</option>
                                     <option value="5000">5000</option>
+                                    <option value="5000">10000</option>
 
                                 </select>
                             </td>

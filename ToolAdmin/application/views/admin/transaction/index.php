@@ -326,8 +326,12 @@
 				<option value="">Game Khác</option>
     <option value="HamCaMap" <?php if ($this->input->post('servicename') == "HamCaMap") {
         echo "selected";
-    } ?>>------Chơi game bắn cá
+    } ?>>------Chơi game hàm cá mập
     </option>
+                <option value="ThanBien" <?php if ($this->input->post('servicename') == "ThanBien") {
+                    echo "selected";
+                } ?>>------Chơi game thần biển
+                </option>
                 <option value="">Game Cờ</option>
                 <option value="Caro" <?php if ($this->input->post('servicename') == "Caro") {
                     echo "selected";

@@ -1197,7 +1197,7 @@ $(document).ready(function () {
                 }
 				
 				 if(res.actionGame.HamCaMap != null){
-                    result4 += resultSearchTransction("Bắn cá", res.actionGame.HamCaMap.moneyWin, res.actionGame.HamCaMap.moneyLost, res.actionGame.HamCaMap.moneyOther, res.actionGame.HamCaMap.fee, res.actionGame.HamCaMap.revenuePlayGame, res.actionGame.HamCaMap.revenue);
+                    result4 += resultSearchTransction("Hàm Cá Mập", res.actionGame.HamCaMap.moneyWin, res.actionGame.HamCaMap.moneyLost, res.actionGame.HamCaMap.moneyOther, res.actionGame.HamCaMap.fee, res.actionGame.HamCaMap.revenuePlayGame, res.actionGame.HamCaMap.revenue);
                     $('#logactiongamekhac').html(result4);
                     total19 += res.actionGame.HamCaMap.moneyWin;
                     total20+= res.actionGame.HamCaMap.moneyLost;
@@ -1206,7 +1206,21 @@ $(document).ready(function () {
                     total23 += res.actionGame.HamCaMap.revenuePlayGame;
                     total24 += res.actionGame.HamCaMap.revenue;
                 }else{
-                    result4 += resultSearchTransction("Bắn cá", 0, 0, 0, 0, 0, 0);
+                    result4 += resultSearchTransction("Hàm Cá Mập", 0, 0, 0, 0, 0, 0);
+                    $('#logactiongamekhac').html(result4);
+                }
+
+                if(res.actionGame.ThanBien != null){
+                    result4 += resultSearchTransction("Thần Biển", res.actionGame.ThanBien.moneyWin, res.actionGame.ThanBien.moneyLost, res.actionGame.ThanBien.moneyOther, res.actionGame.ThanBien.fee, res.actionGame.ThanBien.revenuePlayGame, res.actionGame.ThanBien.revenue);
+                    $('#logactiongamekhac').html(result4);
+                    total19 += res.actionGame.ThanBien.moneyWin;
+                    total20+= res.actionGame.ThanBien.moneyLost;
+                    total21 += res.actionGame.ThanBien.moneyOther;
+                    total22 += res.actionGame.ThanBien.fee;
+                    total23 += res.actionGame.ThanBien.revenuePlayGame;
+                    total24 += res.actionGame.ThanBien.revenue;
+                }else{
+                    result4 += resultSearchTransction("Thần Biển", 0, 0, 0, 0, 0, 0);
                     $('#logactiongamekhac').html(result4);
                 }
 

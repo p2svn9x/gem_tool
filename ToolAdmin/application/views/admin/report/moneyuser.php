@@ -695,7 +695,7 @@ $("#search_tran").click(function () {
                 }
 				if(res.users.actionGame.HamCaMap != null) {
                     var stt = 15;
-                    result2 += resultSearchTransctionbai(stt, "Bắn cá", res.users.actionGame.HamCaMap.moneyWin, res.users.actionGame.HamCaMap.moneyLost, res.users.actionGame.HamCaMap.moneyOther, res.users.actionGame.HamCaMap.fee, res.users.actionGame.HamCaMap.revenuePlayGame, res.users.actionGame.HamCaMap.revenue);
+                    result2 += resultSearchTransctionbai(stt, "Hàm cá mập", res.users.actionGame.HamCaMap.moneyWin, res.users.actionGame.HamCaMap.moneyLost, res.users.actionGame.HamCaMap.moneyOther, res.users.actionGame.HamCaMap.fee, res.users.actionGame.HamCaMap.revenuePlayGame, res.users.actionGame.HamCaMap.revenue);
                     $('#logactionbai').html(result2);
                     total6 += res.users.actionGame.HamCaMap.moneyWin;
                     total7 += res.users.actionGame.HamCaMap.moneyLost;
@@ -708,6 +708,22 @@ $("#search_tran").click(function () {
                     result2 += "";
                     $('#logactionbai').html(result2);
                 }
+                if(res.users.actionGame.ThanBien != null) {
+                    var stt = 16;
+                    result2 += resultSearchTransctionbai(stt, "Thần Biển", res.users.actionGame.ThanBien.moneyWin, res.users.actionGame.ThanBien.moneyLost, res.users.actionGame.ThanBien.moneyOther, res.users.actionGame.ThanBien.fee, res.users.actionGame.ThanBien.revenuePlayGame, res.users.actionGame.ThanBien.revenue);
+                    $('#logactionbai').html(result2);
+                    total6 += res.users.actionGame.ThanBien.moneyWin;
+                    total7 += res.users.actionGame.ThanBien.moneyLost;
+                    total8 += res.users.actionGame.ThanBien.moneyOther;
+                    total9 += res.users.actionGame.ThanBien.fee;
+                    total10 += res.users.actionGame.ThanBien.revenuePlayGame;
+                    total11 += res.users.actionGame.ThanBien.revenue;
+                }
+                else{
+                    result2 += "";
+                    $('#logactionbai').html(result2);
+                }
+
                     $("#totalmoneywin").text(commaSeparateNumber(total));
                     $("#totalmoneylost").text(commaSeparateNumber(total1));
                     $("#totalsk").text(commaSeparateNumber(total2));
