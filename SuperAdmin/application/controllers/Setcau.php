@@ -67,10 +67,10 @@ Class Setcau extends MY_Controller
         } else {
             foreach ($MyFile as $item) {
                 $item = (preg_replace("/\r|\n/", "", $item));
-                if ($code == $item) {
-                    echo "Bạn nhập trùng cầu tài xỉu rồi";
-                    die();
-                }
+//                if ($code == $item) {
+//                    echo "Bạn nhập trùng cầu tài xỉu rồi";
+//                    die();
+//                }
             }
         }
         file_put_contents('public/admin/taixiu.dat', $code . "\n", FILE_APPEND);

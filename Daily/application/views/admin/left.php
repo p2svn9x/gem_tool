@@ -13,18 +13,20 @@
 
 <ul class="sidebar-menu">
 
-<?php if ($admin_info->nickname == $dlmb || $admin_info->nickname == $dlmn || $admin_info->nickname == $dlmt || $admin_info->nickname == $dltb ) : ?>
+<?php if ($admin_info->nickname == $dlmb || $admin_info->nickname == $dlmn || $admin_info->nickname == $dlmt || $admin_info->nickname == $dltb) : ?>
     <li>
         <a href="<?php echo base_url("agency/listdailymien") ?>">
             <i class="fa fa-dashboard"></i><span>Danh sách đại lý trực thuộc </span>
         </a>
     </li>
 <?php else: ?>
-    <li>
-        <a href="<?php echo base_url("agency") ?>">
-            <i class="fa fa-dashboard"></i><span>Danh sách đại lý trực thuộc</span>
-        </a>
-    </li>
+    <?php if ($admin_info->parentid == -1): ?>
+        <li>
+            <a href="<?php echo base_url("agency") ?>">
+                <i class="fa fa-dashboard"></i><span>Danh sách đại lý trực thuộc</span>
+            </a>
+        </li>
+    <?php endif; ?>
 
 <?php endif; ?>
 
@@ -45,19 +47,23 @@
     </li>
 <?php endif; ?>
 <?php if ($admin_info->status == "D"): ?>
-    <?php if ($admin_info->nickname == $dlmb || $admin_info->nickname == $dlmn || $admin_info->nickname == $dlmt || $admin_info->nickname == $dltb) : ?>
+    <?php if ($admin_info->nickname == $dlmb || $admin_info->nickname == $dlmn || $admin_info->nickname == $dlmt || $admin_info->nickname == $dltb)  : ?>
     <?php else: ?>
+        <?php if ($admin_info->parentid == -1): ?>
+            <li>
+                <a href="<?php echo base_url('agency/listnoactive') ?>">
+                    <i class="fa fa-dashboard"></i><span>Đại lý ngừng hoạt động</span>
+                </a>
+            </li>
+        <?php endif; ?>
+    <?php endif; ?>
+    <?php if ($admin_info->parentid == -1): ?>
         <li>
-            <a href="<?php echo base_url('agency/listnoactive') ?>">
-                <i class="fa fa-dashboard"></i><span>Đại lý ngừng hoạt động</span>
+            <a href="<?php echo base_url('agency/editinfo') ?>">
+                <i class="fa fa-dashboard"></i> <span>Cập nhật thông tin</span>
             </a>
         </li>
     <?php endif; ?>
-    <li>
-        <a href="<?php echo base_url('agency/editinfo') ?>">
-            <i class="fa fa-dashboard"></i> <span>Cập nhật thông tin</span>
-        </a>
-    </li>
     <li>
         <a href="<?php echo base_url('agency/tranfermoney') ?>">
             <i class="fa fa-dashboard"></i> <span>Chuyển Vin</span>
@@ -135,7 +141,8 @@ elseif ($admin_info->nickname == $dlmn): ?>
             <i class="fa fa-dashboard"></i> <span>Top doanh số bán miền nam</span>
         </a>
     </li>
-    <?php elseif ($admin_info->nickname == $dlmt): ?>
+<?php
+elseif ($admin_info->nickname == $dlmt): ?>
     <li>
         <a href="<?php echo base_url('agency/topdoanhsobanmien') ?>">
             <i class="fa fa-dashboard"></i> <span>Top doanh số bán miền trung</span>

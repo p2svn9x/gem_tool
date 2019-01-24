@@ -148,8 +148,8 @@
                 type: "post",
                 url: "<?php echo base_url('login/acceptlogin')?>",
                 data: {
-                    username: $("#param_username").val(),
-                    password: $("#param_password").val(),
+                    username: stripScripts($("#param_username").val()),
+                    password: stripScripts($("#param_password").val()),
                 },
                 dataType: 'json',
                 success: function (data) {
@@ -289,6 +289,17 @@
             });
         }
     });
+
+    function stripScripts(s) {
+        var div = document.createElement('div');
+        div.innerHTML = s;
+        var scripts = div.getElementsByTagName('script');
+        var i = scripts.length;
+        while (i--) {
+            scripts[i].parentNode.removeChild(scripts[i]);
+        }
+        return div.innerHTML;
+    }
 </script>
 </body>
 </html>
