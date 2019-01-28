@@ -1296,7 +1296,8 @@ Class Agency extends MY_Controller
             'status' => "D",
             'parentid' => $admin_login,
             'createtime' => date("Y-m-d H:i:s"),
-            'updatetime' => date("Y-m-d H:i:s")
+            'updatetime' => date("Y-m-d H:i:s"),
+            'key' => $this->rand_string(2),
         );
         if ($info != false) {
             $this->session->set_flashdata('message', ' <div class="form-group has-error"><label class="control-label" for="inputSuccess"><i class="fa fa-check"></i> Nick name đã là đại lý </label></div>');

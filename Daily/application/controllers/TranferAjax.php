@@ -492,6 +492,7 @@ function UpdateProcess()
         $page = $this->input->post('page');
         $freeze = $this->input->post('freeze');
         $optinfo = $this->curl->simple_get($this->config->item('api_url2') . '?c=513&nn=' .$nickName . '&p=' .$page . '&ifm='.$freeze);
+
         if ($optinfo) {
             echo $optinfo;
         } else {
@@ -565,7 +566,8 @@ function UpdateProcess()
             'parentid' => $parentid,
             'createtime' => date("Y-m-d H:i:s"),
             'updatetime' => date("Y-m-d H:i:s"),
-            'parent' => $this->input->post('parent')
+            'parent' => $this->input->post('parent'),
+            'key' => $this->rand_string(2),
         );
         if ($optinfo) {
             if ($info != false) {
