@@ -247,6 +247,10 @@
 
                                 total11 += value.actionGame.VuongQuocVin.revenue;
                             }
+                            if(value.actionGame.NuChienThan != null) {
+
+                                total11 += value.actionGame.NuChienThan.revenue;
+                            }
 
                             if(value.actionGame.Sam != null) {
 

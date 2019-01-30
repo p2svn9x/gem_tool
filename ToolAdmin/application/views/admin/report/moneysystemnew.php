@@ -975,6 +975,20 @@ $(document).ready(function () {
                     $('#logaction1').html(result2);
                 }
 
+                if (res.actionGame.NuChienThan != null) {
+                    result2 += resultSearchTransction("Nũ Chiến Thần", res.actionGame.NuChienThan.moneyWin, res.actionGame.NuChienThan.moneyLost, res.actionGame.NuChienThan.moneyOther, res.actionGame.NuChienThan.fee, res.actionGame.NuChienThan.revenuePlayGame, res.actionGame.NuChienThan.revenue);
+                    $('#logaction1').html(result2);
+                    total1 += res.actionGame.NuChienThan.moneyWin;
+                    total2 += res.actionGame.NuChienThan.moneyLost;
+                    total3 += res.actionGame.NuChienThan.moneyOther;
+                    total4 += res.actionGame.NuChienThan.fee;
+                    total5 += res.actionGame.NuChienThan.revenuePlayGame;
+                    total6 += res.actionGame.NuChienThan.revenue;
+                } else {
+                    result2 += resultSearchTransction("Nũ Chiến Thần", 0, 0, 0, 0, 0, 0);
+                    $('#logaction1').html(result2);
+                }
+
                 if (res.actionGame.DeCheLaMa != null) {
                     result2 += resultSearchTransction("Đế Chế La Mã", res.actionGame.DeCheLaMa.moneyWin, res.actionGame.DeCheLaMa.moneyLost, res.actionGame.DeCheLaMa.moneyOther, res.actionGame.DeCheLaMa.fee, res.actionGame.DeCheLaMa.revenuePlayGame, res.actionGame.DeCheLaMa.revenue);
                     $('#logaction1').html(result2);

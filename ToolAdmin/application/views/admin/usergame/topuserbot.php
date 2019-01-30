@@ -103,6 +103,7 @@
                                 <option value="MyNhanNgu">--------MyNhanNgu</option>
                                 <option value="NuDiepVien">--------NuDiepVien</option>
 								  <option value="VuongQuocVin">--------VuongQuocVin</option>
+								  <option value="NuChienThan">--------NuChienThan</option>
 								   <option value="HamCaMap">--------HamCaMap</option>
                                 <option value="ThanBien">--------ThanBien</option>
 								   <option value="DeCheLaMa">--------Đế Chế La Mã</option>

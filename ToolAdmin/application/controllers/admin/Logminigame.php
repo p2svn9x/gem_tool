@@ -488,4 +488,25 @@ Class Logminigame extends MY_Controller
         }
 
     }
+
+    function lognuchienthan()
+    {
+        $this->data['temp'] = 'admin/logminigame/lognuchienthan';
+        $this->load->view('admin/main', $this->data);
+    }
+    function lognuchienthanajax(){
+        $phienbc = urlencode($this->input->post("phienbc"));
+        $nickname = urlencode($this->input->post("nickname"));
+        $roomvin =  $this->input->post("roomvin");
+        $toDate = $this->input->post("toDate");
+        $fromDate = $this->input->post("fromDate");
+        $pages = $this->input->post("pages");
+        $datainfo = $this->curl->simple_get($this->config->item('api_backend2').'?c=122&un='.$nickname.'&rid='.$phienbc.'&bv='.$roomvin.'&ts='.urlencode($toDate).'&te='.urlencode($fromDate).'&p='.$pages.'&gn=NuChienThan');
+        if(isset($datainfo)) {
+            echo $datainfo;
+        }else{
+            echo "Bạn không được hack";
+        }
+
+    }
 }

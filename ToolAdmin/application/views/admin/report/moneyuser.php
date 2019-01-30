@@ -452,7 +452,7 @@ $("#search_tran").click(function () {
                 }
 
                 if(res.users.actionGame.DeCheLaMa != null) {
-                    var stt = 10;
+                    var stt = 11;
                     result1 += resultSearchTransction(stt, "Đế Chế La Mã", res.users.actionGame.DeCheLaMa.moneyWin, res.users.actionGame.DeCheLaMa.moneyLost, res.users.actionGame.DeCheLaMa.moneyOther, res.users.actionGame.DeCheLaMa.fee, res.users.actionGame.DeCheLaMa.revenuePlayGame, res.users.actionGame.DeCheLaMa.revenue);
                     $('#logaction').html(result1);
                     total += res.users.actionGame.DeCheLaMa.moneyWin;
@@ -461,6 +461,22 @@ $("#search_tran").click(function () {
                     total3 += res.users.actionGame.DeCheLaMa.fee;
                     total4 += res.users.actionGame.DeCheLaMa.revenuePlayGame;
                     total5 += res.users.actionGame.DeCheLaMa.revenue;
+                }
+                else{
+                    result1 += "";
+                    $('#logaction').html(result1);
+                }
+
+                if(res.users.actionGame.NuChienThan != null) {
+                    var stt = 12;
+                    result1 += resultSearchTransction(stt, "Nũ Chiến Thần", res.users.actionGame.NuChienThan.moneyWin, res.users.actionGame.NuChienThan.moneyLost, res.users.actionGame.NuChienThan.moneyOther, res.users.actionGame.NuChienThan.fee, res.users.actionGame.NuChienThan.revenuePlayGame, res.users.actionGame.NuChienThan.revenue);
+                    $('#logaction').html(result1);
+                    total += res.users.actionGame.NuChienThan.moneyWin;
+                    total1 += res.users.actionGame.NuChienThan.moneyLost;
+                    total2 += res.users.actionGame.NuChienThan.moneyOther;
+                    total3 += res.users.actionGame.NuChienThan.fee;
+                    total4 += res.users.actionGame.NuChienThan.revenuePlayGame;
+                    total5 += res.users.actionGame.NuChienThan.revenue;
                 }
                 else{
                     result1 += "";

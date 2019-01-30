@@ -158,6 +158,10 @@
                     echo "selected";
                 } ?>>------Quay Vương Quốc Vin
                 </option>
+                <option value="NuChienThan" <?php if ($this->input->post('servicename') == "NuChienThan") {
+                    echo "selected";
+                } ?>>------Quay Nữ Chiến Thần
+                </option>
                 <option value="DeCheLaMa" <?php if ($this->input->post('servicename') == "DeCheLaMa") {
                     echo "selected";
                 } ?>>------Quay Đế Chế La Mã
