@@ -552,15 +552,25 @@ Class Transaction extends MY_Controller
         $sid = $this->input->post("sid");
         $nickname = $this->input->post("nickname");
         $money = $this->input->post("money");
+        $type = $this->input->post("type");
 
-        $datainfo = $this->curl->simple_get($this->config->item('api_backend') . '?c=145&sid=' . $sid);
+        $datainfo = $this->curl->simple_get($this->config->item('api_backend') . '?c=145&sid=' . $sid.'&type='.$type);
         if (isset($datainfo)) {
             if ($datainfo == 0) {
-                $data = array(
-                    'account_name' => $admin_info->FullName,
-                    'username' => $admin_info->UserName,
-                    'action' => "Mở đóng băng tiền đại lý chuyển khoản cho  tài khoản " . $nickname . " ,số tiền " . $money,
-                );
+                if($type == 0){
+                    $data = array(
+                        'account_name' => $admin_info->FullName,
+                        'username' => $admin_info->UserName,
+                        'action' => "Mở đóng băng tiền đại lý chuyển khoản cho  tài khoản " . $nickname . " ,số tiền " . $money,
+                    );
+                }elseif ($type == 1){
+                    $data = array(
+                        'account_name' => $admin_info->FullName,
+                        'username' => $admin_info->UserName,
+                        'action' => "Back tiền cho  tài khoản " . $nickname . " ,số tiền " . $money,
+                    );
+                }
+
                 $this->logadmin_model->create($data);
             }
             echo $datainfo;

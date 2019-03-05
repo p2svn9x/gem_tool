@@ -162,6 +162,7 @@
                     <td>Thời gian</td>
                     <?php if ($admin_info->Status == "W" || $admin_info->Status == "A" ||  $admin_info->Status == "C"): ?>
                         <td>Mở đóng băng</td>
+                        <td>Back tiền</td>
                     <?php endif; ?>
                 </tr>
                 </thead>
@@ -267,7 +268,7 @@
                 fromDate: $("#fromDate").val(),
                 pages: 1,
                 status: $("#statusdb").val(),
-                display : $("#display").val()
+                display : $("#display").val(),
                 act : $("#actorName").val()
             },
 
@@ -360,8 +361,10 @@
         if ($("#statusopen").val() == "A" || $("#statusopen").val() == "W" || $("#statusopen").val() == "Q" ||  $("#statusopen").val() == "C") {
             if (status == 1) {
 
-                rs += "<td>" + "<input type='button' id='updatecard' value='Mở đóng băng' class='button blueB'  onclick=\"opendongbang('" + sesionid + "','" + nickname + "','" + money + "')\" >" + "</td>";
+                rs += "<td>" + "<input type='button' id='updatecard' value='Mở đóng băng' class='button blueB'  onclick=\"opendongbang('" + sesionid + "','" + nickname + "','" + money + "','" + 0 + "')\" >" + "</td>";
+                rs += "<td>" + "<input type='button' id='updatebackmoney' value='Back tiền' class='button redB'  onclick=\"opendongbang('" + sesionid + "','" + nickname + "','" + money + "','" + 1 + "')\" >" + "</td>";
             }else{
+                rs += "<td>" + "" + "</td>";
                 rs += "<td>" + "" + "</td>";
             }
         }
@@ -370,7 +373,7 @@
     }
 
 
-    function opendongbang(referentid, nickname, money) {
+    function opendongbang(referentid, nickname, money,type) {
         if (!confirm('Bạn chắc chắn muốn mở đóng băng ?')) {
             return false;
         }
@@ -381,7 +384,8 @@
             data: {
                 sid: referentid,
                 nickname: nickname,
-                money: money
+                money: money,
+                type : type
 
             },
 
@@ -392,7 +396,12 @@
                 if (result == 0) {
 
                     $("#bsModal3").modal("show");
-                    $("#statuspenđing").html("Bạn mở đóng băng thành công");
+                    if(type == 0){
+                        $("#statuspenđing").html("Bạn mở đóng băng thành công");
+                    }else if(type == 1){
+                        $("#statuspenđing").html("Bạn back tiền thành công");
+                    }
+
                 } else if (result == 1) {
                     $("#statuspenđing").html("Bạn mở đóng băng không thành công");
                 }

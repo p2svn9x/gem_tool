@@ -101,4 +101,18 @@ Class Useragent_model extends MY_Model
             return FALSE;
         }
     }
+
+    function  check_login_daily_c2($nickname){
+
+        $this->db->where('parentid >', -1);
+        $this->db->where('active',1);
+        $this->db->where('nickname',$nickname);
+        $query = $this->db->get($this->table);
+        if($query->result())
+        {
+            return $query->result();
+        }else{
+            return FALSE;
+        }
+    }
 }
