@@ -49,7 +49,7 @@
                         <div style="width: 100%;float: left;color: #ff0000;" id="error"></div>
                         <div class="form-group">
                             <div class="row">
-                                <div class="col-xs-12 col-sm-3 col-md-3" id="table1">
+                                <div class="col-xs-12 col-sm-6 col-md-6" id="table1">
 
 
                                     <h1 id="resultsearch"></h1>
@@ -85,6 +85,18 @@
                                     <h1 id="resultsearch1"></h1>
                                 </div>
                                 <div id="spinner1" class="spinner" style="">
+                                    <img id="img-spinner" src="<?php echo public_url('admin/images/gif-load.gif') ?>"
+                                         alt="Loading"/>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6 col-md-6" id="table5">
+                                    <h1 id="resultsearch3"></h1>
+                                </div>
+                                <div id="spinner5" class="spinner" style="">
                                     <img id="img-spinner" src="<?php echo public_url('admin/images/gif-load.gif') ?>"
                                          alt="Loading"/>
                                 </div>
@@ -157,6 +169,7 @@ $(document).ready(function () {
     topDoanhSoAgent1();
     topDoanhSoAgent2();
     topDoanhSoAgent3();
+    topDoanhSoAgent4();
 
 });
 $("#search_tran").click(function () {
@@ -170,6 +183,7 @@ $("#search_tran").click(function () {
     topDoanhSoAgent1();
     topDoanhSoAgent2()
     topDoanhSoAgent3()
+    topDoanhSoAgent4()
 
 });
 
@@ -406,6 +420,63 @@ function topDoanhSoAgent3() {
             }
         }, error: function () {
             $("#spinner4").hide();
+            $("#error").html("Kết nối không ổn định.Vui lòng thử lại sau");
+        },
+        timeout: 30000
+    });
+}
+
+
+function topDoanhSoAgent4() {
+
+    $.ajax({
+        type: "POST",
+        url: "<?php echo base_url('TranferAjax/topDoanhSoBanDlMien') ?>",
+        data: {
+            nickName: "<?php echo $dltb ?>",
+            timestart: $("#startDate").val(),
+            timeend: $("#endDate").val(),
+            month: $("#fromDate").val()
+        },
+        cache: true,
+        dataType: 'json',
+        success: function (data) {
+            $("#spinner5").hide();
+            $("#error").html("");
+            if (data.transactions == "") {
+                $('#table5').html("");
+            } else {
+                var i = 1;
+                var result = "";
+                result += '<h3 class="text-center">Miền Đông</h3>'
+                result += '<table id="TblAgent" class="tablesorter table table-bordered table-hover">';
+                result += ' <thead>';
+                result += ' <tr>';
+                result += ' <th style="text-align: center">TOP</th>';
+                result += ' <th>Tên đại lý</th>';
+                result += ' <th>Nickname</th>';
+                result += ' <th>Doanh số</th>';
+                result += ' <th style="display:none">Thưởng cố định(Vin)</th>';
+                result += ' <th>Thưởng doanh số(Vin)</th>';
+                result += ' <th style="display:none">Tổng thưởng(Vin)</th>';
+                result += ' <th style="display:none">Thưởng vin</th>';
+                result += ' <th style="display:none">Thưởng vinCard</th>';
+                result += ' <th style="display:none">% Chuyển đổi</th>';
+                result += ' </tr>';
+                result += ' </thead>';
+                result += '<tbody>';
+                $.each(data.transactions, function (index, value) {
+                    result += listtopdoanhsoAgent(index, value.agentName, value.nickName, value.total, value.bonusFix, value.bonusMore, value.bonusTotal, value.bonusByVinCash, value.bonusByVinplayCard, value.percent);
+                });
+
+                result += '</tbody>';
+                result += '</table>';
+                $('#table5').html(result);
+
+
+            }
+        }, error: function () {
+            $("#spinner5").hide();
             $("#error").html("Kết nối không ổn định.Vui lòng thử lại sau");
         },
         timeout: 30000

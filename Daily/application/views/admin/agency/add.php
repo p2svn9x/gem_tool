@@ -77,6 +77,7 @@
                     <option value="<?php echo $dlmn ?>">Tổng đại lý miền nam</option>
                     <option value="<?php echo $dlmt ?>">Tổng đại lý miền trung</option>
                     <option value="<?php echo $dltb ?>">Tổng đại lý tây bắc</option>
+                    <option value="<?php echo $dlmd ?>">Tổng đại lý miền đông</option>
                 </select>
 
             </div>

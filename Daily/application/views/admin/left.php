@@ -13,7 +13,7 @@
 
 <ul class="sidebar-menu">
 
-<?php if ($admin_info->nickname == $dlmb || $admin_info->nickname == $dlmn || $admin_info->nickname == $dlmt || $admin_info->nickname == $dltb) : ?>
+<?php if ($admin_info->nickname == $dlmb || $admin_info->nickname == $dlmn || $admin_info->nickname == $dlmt || $admin_info->nickname == $dltb || $admin_info->nickname == $dlmd) : ?>
     <li>
         <a href="<?php echo base_url("agency/listdailymien") ?>">
             <i class="fa fa-dashboard"></i><span>Danh sách đại lý trực thuộc </span>
@@ -47,7 +47,7 @@
     </li>
 <?php endif; ?>
 <?php if ($admin_info->status == "D"): ?>
-    <?php if ($admin_info->nickname == $dlmb || $admin_info->nickname == $dlmn || $admin_info->nickname == $dlmt || $admin_info->nickname == $dltb)  : ?>
+    <?php if ($admin_info->nickname == $dlmb || $admin_info->nickname == $dlmn || $admin_info->nickname == $dlmt || $admin_info->nickname == $dltb || $admin_info->nickname == $dlmd)  : ?>
     <?php else: ?>
         <?php if ($admin_info->parentid == -1): ?>
             <li>
@@ -194,7 +194,7 @@ elseif ($admin_info->nickname == $daily): ?>
                     
                 </ul>
             </li>-->
-<?php if ($admin_info->nickname == $dlmb || $admin_info->nickname == $dlmn || $admin_info->nickname == $dlmt || $admin_info->nickname == $dltb) : ?>
+<?php if ($admin_info->nickname == $dlmb || $admin_info->nickname == $dlmn || $admin_info->nickname == $dlmt || $admin_info->nickname == $dltb || $admin_info->nickname == $dlmd) : ?>
 <?php else: ?>
     <li>
         <a href="<?php echo base_url('freeze') ?>">

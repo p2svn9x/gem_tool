@@ -1,6 +1,6 @@
 
 
-<?php if ($admin_info->nickname == $dlmb || $admin_info->nickname == $dlmn || $admin_info->nickname == $dlmt || $admin_info->nickname == $dltb) : ?>
+<?php if ($admin_info->nickname == $dlmb || $admin_info->nickname == $dlmn || $admin_info->nickname == $dlmt || $admin_info->nickname == $dltb || $admin_info->nickname == $dlmd) : ?>
 <section class="content-header">
     <h1>
         Top doanh số liên minh
