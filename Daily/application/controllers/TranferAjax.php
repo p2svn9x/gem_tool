@@ -629,6 +629,7 @@ function UpdateProcess()
             'nameagent' => $this->input->post('namedaily'),
             'address' => $this->input->post('addressdaily'),
             'facebook' => $this->input->post('facebookdaily'),
+            'telegram' => $this->input->post('telegram'),
             'namebank' => $this->input->post('namebank'),
             'nameaccount' => strtoupper($this->input->post('usernamebank')),
             'numberaccount' => $this->input->post('numberbank'),

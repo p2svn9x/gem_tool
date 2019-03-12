@@ -157,6 +157,20 @@
                                 </div>
                             </div>
 
+                            <div class="form-group">
+                                <div class="row">
+                                    <label class="col-sm-2 control-label">Telegram:</label>
+
+                                    <div class="col-sm-3">
+                                        <input type="text" class="form-control" name="telegramdl"
+                                               value="<?php echo $info->telegram ?>">
+                                    </div>
+                                    <div class="col-sm-4"><label class="control-label" for="inputError"
+                                                                 style="color: #ff0000"><?php echo form_error('phone') ?></label>
+                                    </div>
+                                </div>
+                            </div>
+
                             <?php if ($admin_info->status == "A"): ?>
                                 <div class="form-group">
                                     <div class="row">

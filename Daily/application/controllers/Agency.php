@@ -2045,6 +2045,7 @@ Class Agency extends MY_Controller
                 $data = array(
                     'nameagent' => $this->input->post("nameagentdl"),
                     'facebook' => $this->input->post("facebookdl"),
+                    'telegram' => $this->input->post("telegramdl"),
                     'address' => $this->input->post("addressdl"),
                     'phone' => $this->input->post("phonedl"),
                     'namebank' => $this->input->post("namebank"),
@@ -2088,6 +2089,7 @@ Class Agency extends MY_Controller
                 $data = array(
                     'nameagent' => $this->input->post("nameagentdl"),
                     'facebook' => $this->input->post("facebookdl"),
+                    'telegram' => $this->input->post("telegramdl"),
                     'address' => $this->input->post("addressdl"),
                     'phone' => $this->input->post("phonedl"),
                     'namebank' => $this->input->post("namebank"),
