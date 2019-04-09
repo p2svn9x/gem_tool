@@ -171,6 +171,20 @@
                                 </div>
                             </div>
 
+                            <div class="form-group">
+                                <div class="row">
+                                    <label class="col-sm-2 control-label">Telegram-ID:</label>
+
+                                    <div class="col-sm-3">
+                                        <input type="text" class="form-control" name="telegramid"
+                                               value="<?php echo $info->telegram_id ?>">
+                                    </div>
+                                    <div class="col-sm-4"><label class="control-label" for="inputError"
+                                                                 style="color: #ff0000"><?php echo form_error('phone') ?></label>
+                                    </div>
+                                </div>
+                            </div>
+
                             <?php if ($admin_info->status == "A"): ?>
                                 <div class="form-group">
                                     <div class="row">
@@ -220,6 +234,18 @@
                                                    value="<?php echo $info->sms ?>" <?php if ($info->sms != -1) {
                                                 echo "checked";
                                             } ?> >
+                                        </div>
+
+                                        <label class="col-sm-2 control-label">Nhận tin nhắn telegram:</label>
+
+                                        <div class="col-sm-3">
+                                            <input type="checkbox" id="isTele" name="chkTele"
+                                                   value="<?php echo $info->tele ?>" <?php if ($info->tele != -1) {
+                                                echo "checked";
+                                            } ?> >
+
+                                            <input type="hidden" id="txtTele" name="txtTele"
+                                                   value="<?php echo $info->tele ?>" size="20">
                                         </div>
                                     </div>
                                 </div>
@@ -300,6 +326,15 @@
             $("#money").hide();
             $("#txtmoney").val("-1");
 
+        }
+    });
+
+    $('#isTele').click(function () {
+        if ($(this).prop("checked") == true) {
+            $("#txtTele").val("0");
+        }
+        else if ($(this).prop("checked") == false) {
+            $("#txtTele").val("-1");
         }
     });
     $("#tbllv2 tr td").each(function(i, tr) {

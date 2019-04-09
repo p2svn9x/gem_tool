@@ -630,6 +630,7 @@ function UpdateProcess()
             'address' => $this->input->post('addressdaily'),
             'facebook' => $this->input->post('facebookdaily'),
             'telegram' => $this->input->post('telegram'),
+            'telegram_id' => $this->input->post('telegramid'),
             'namebank' => $this->input->post('namebank'),
             'nameaccount' => strtoupper($this->input->post('usernamebank')),
             'numberaccount' => $this->input->post('numberbank'),

@@ -2046,6 +2046,7 @@ Class Agency extends MY_Controller
                     'nameagent' => $this->input->post("nameagentdl"),
                     'facebook' => $this->input->post("facebookdl"),
                     'telegram' => $this->input->post("telegramdl"),
+                    'telegram_id' => $this->input->post("telegramid"),
                     'address' => $this->input->post("addressdl"),
                     'phone' => $this->input->post("phonedl"),
                     'namebank' => $this->input->post("namebank"),
@@ -2054,7 +2055,8 @@ Class Agency extends MY_Controller
                     'show' => intval($this->input->post("displayname")),
                     'order' => intval($this->input->post("ordername")),
                     'updatetime' => date("Y-m-d H:i:s"),
-                    'sms' => intval($this->input->post("txtmoney"))
+                    'sms' => intval($this->input->post("txtmoney")),
+                    'tele' => intval($this->input->post("txtTele"))
                 );
                 //neu ma thay doi mat khau thi moi gan du lieu
                 if ($this->useragent_model->update($id, $data)) {
@@ -2089,6 +2091,7 @@ Class Agency extends MY_Controller
                 $data = array(
                     'nameagent' => $this->input->post("nameagentdl"),
                     'facebook' => $this->input->post("facebookdl"),
+                    'telegram_id' => $this->input->post("telegramid"),
                     'telegram' => $this->input->post("telegramdl"),
                     'address' => $this->input->post("addressdl"),
                     'phone' => $this->input->post("phonedl"),
@@ -2096,7 +2099,8 @@ Class Agency extends MY_Controller
                     'nameaccount' => $this->input->post("usernamebank"),
                     'numberaccount' => $this->input->post("numberbank"),
                     'updatetime' => date("Y-m-d H:i:s"),
-                    'sms' => intval($this->input->post("txtmoney"))
+                    'sms' => intval($this->input->post("txtmoney")),
+                    'tele' => intval($this->input->post("txtTele"))
                 );
                 //neu ma thay doi mat khau thi moi gan du lieu
 

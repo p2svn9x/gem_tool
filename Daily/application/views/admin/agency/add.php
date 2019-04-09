@@ -197,6 +197,19 @@
             <label for="inputEmail3" class="col-sm-2 control-label"></label>
         </div>
     </div>
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <label for="inputEmail3" class="col-sm-1 control-label">Telegram-ID:</label>
+
+            <div class="col-sm-2">
+                <input type="text" class="form-control" id="telegramID">
+
+            </div>
+            <label for="inputEmail3" class="col-sm-2 control-label"></label>
+        </div>
+    </div>
     <div class="form-group">
         <div class="row">
             <div class="col-sm-3"></div>
@@ -512,6 +525,7 @@ $("#setdaily1").click(function () {
             addressdaily: $("#addressdaily").val(),
             facebookdaily: $("#facebookdaily").val(),
             telegram: $("#telegram").val(),
+            telegramid: $("#telegramID").val(),
             namebank: $("#namebank").val(),
             usernamebank: $("#usernamebank").val(),
             numberbank: $("#numberbank").val(),
