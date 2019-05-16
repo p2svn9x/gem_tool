@@ -130,4 +130,45 @@ Class Setcau extends MY_Controller
         redirect(base_url('setcau'));
 
     }
+
+    function uploadfiletaixiu()
+    {
+        $this->data['error'] = "";
+
+        if ($this->input->post("ok")) {
+            if (file_exists(FCPATH . "public/admin/taixiu.dat") != false) {
+                unlink(FCPATH . 'public/admin/taixiu.dat');
+            }
+            $temp = explode(".", $_FILES["filedat"]["name"]);
+            $extension = end($temp);
+            if ($extension == "dat") {
+                $config = array("");
+                $config['upload_path'] = './public/admin';
+                $config['allowed_types'] = '*';
+                $config['max_size'] = 1024 * 8;
+                $config['overwrite'] = TRUE;
+                $config['file_name'] = 'taixiu';
+                $this->load->library('upload', $config);
+                $this->upload->initialize($config);
+
+                if (!$this->upload->do_upload('filedat')) {
+                    $error = array('error' => $this->upload->display_errors());
+                    $this->data['error'] = "Bạn chưa chọn file hoặc không được phân quyền";
+
+                } else {
+                    $this->data['error'] = "";
+                    $data = array('upload_data' => $this->upload->data());
+
+                    $this->data['error'] = "Upload file thành công";
+                }
+            } else {
+                $this->data['error'] = "Bạn chưa chọn file hoặc không chọn đúng file .dat";
+            }
+//            }
+        }
+
+
+        $this->data['temp'] = 'admin/setcau/uploadfile';
+        $this->load->view('admin/main', $this->data);
+    }
 }
